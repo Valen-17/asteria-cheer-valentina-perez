@@ -13,7 +13,10 @@
   <meta property="og:description" content="Asteria Cheer es un club de porrismo en Medellín con categorías Mini, Junior, Senior y Open. Entrena acrobacias, pirámides y baile con nosotros.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
-  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <meta property="og:image" content="img/og-asteria.jpg">
+  <meta property="og:image:alt" content="Logo de Asteria Cheer">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <!-- Tipografías: Montserrat (títulos) y Nunito (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +35,7 @@
     <nav class="navbar navbar-expand-lg navbar-asteria" aria-label="Navegación principal">
       <div class="container">
         <a class="navbar-brand marca" href="index.html">
-          <img src="img/logo.svg" alt="Logo de Asteria Cheer: estrella dorada con corona" width="40" height="40">
+          <img src="img/isotipo-asteria.webp" alt="Isotipo de Asteria Cheer: porrista sobre una estrella dorada" width="44" height="44">
           Asteria Cheer
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú de navegación">
@@ -53,14 +56,21 @@
 
   <main id="contenido">
     <!-- Encabezado de la página -->
-    <section class="hero" aria-labelledby="titulo-pagina">
+    <section class="hero hero-portada" aria-labelledby="titulo-pagina">
       <div class="container">
-        <p class="etiqueta">Club de porrismo · Medellín</p>
-        <h1 id="titulo-pagina">Asteria Cheer</h1>
-        <p class="lead">Cada sueño es una estrella que nos impulsa a avanzar. Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel.</p>
-        <div class="d-flex flex-wrap gap-2 mt-4">
-          <a class="btn btn-dorado btn-lg" href="contacto.html">Inscríbete</a>
-          <a class="btn btn-contorno btn-lg" href="tabla.html">Ver equipos</a>
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <p class="etiqueta">Club de porrismo · Medellín</p>
+            <h1 id="titulo-pagina">Asteria Cheer</h1>
+            <p class="lead">Cada sueño es una estrella que nos impulsa a avanzar. Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel.</p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a class="btn btn-dorado btn-lg" href="contacto.html">Inscríbete</a>
+              <a class="btn btn-contorno btn-lg" href="tabla.html">Ver equipos</a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img class="logo-portada" src="img/logo-asteria.webp" alt="Logo de Asteria Cheer: porrista en heel stretch sobre una estrella dorada con el lema Cada sueño es una estrella que nos impulsa a avanzar" width="640" height="640">
+          </div>
         </div>
       </div>
     </section>

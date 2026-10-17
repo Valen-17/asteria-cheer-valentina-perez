@@ -29,6 +29,7 @@
     "html-validate": "^9.7.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
+    "sharp": "^0.34.5",
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^36.0.1"
   }

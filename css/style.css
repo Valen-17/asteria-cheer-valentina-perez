@@ -160,6 +160,17 @@ a {
   color: var(--color-blanco);
 }
 
+/* Portada de inicio: fondo negro para que el logo (dorado y morado) resalte */
+.hero-portada {
+  background-color: var(--color-negro);
+}
+
+.logo-portada {
+  width: 100%;
+  max-width: 15rem; /* en móvil no debe empujar el título fuera de pantalla */
+  height: auto;
+}
+
 /* 5. Componentes */
 .btn-dorado {
   background-color: var(--color-dorado);
@@ -237,6 +248,10 @@ a {
 
 /* 7. Responsive (mobile first: los estilos de arriba son para móvil) */
 @media (width >= 992px) {
+  .logo-portada {
+    max-width: 26rem;
+  }
+
   .navbar-asteria .nav-link {
     margin-inline: 0.25rem;
   }

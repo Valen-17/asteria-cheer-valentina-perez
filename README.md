@@ -29,7 +29,8 @@ asteria-cheer/
 │   ├── model/          Datos y reglas de validación
 │   ├── view/           Mensajes y estados en el DOM
 │   └── controller/     Eventos que unen modelo y vista
-├── img/                Imágenes del portal
+├── img/                Imágenes optimizadas (WebP/JPG) que usa el sitio
+├── originales/         Archivos fuente sin optimizar (no se suben al repositorio)
 ├── tests/              Pruebas unitarias del modelo
 └── scripts/            Verificación automática de la rúbrica
 ```
@@ -74,4 +75,6 @@ Abrir el sitio con la extensión Live Server de VS Code (los módulos de JavaScr
 
 ## Créditos de imágenes
 
-_Se completará con la fuente de cada imagen (Unsplash, Pexels o generada con IA)._
+- Logo e isotipo: generados con IA para este proyecto.
+
+_Las demás imágenes se listarán aquí con su fuente (Unsplash, Pexels o generadas con IA)._
