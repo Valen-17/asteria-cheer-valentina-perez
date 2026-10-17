@@ -158,9 +158,8 @@
         <p class="sobretitulo">/ Horarios /</p>
         <h2 id="titulo-tabla">Horarios y niveles</h2>
         <p class="mb-4">Todos los equipos entrenan en la misma sede, con calentamiento, técnica y montaje de rutina en cada sesión.</p>
-        <p class="small d-md-none"><i class="bi bi-arrow-left-right" aria-hidden="true"></i> Desliza la tabla para ver todas las columnas.</p>
-        <section class="table-responsive tabla-contenedor revelar" tabindex="0" aria-label="Tabla de horarios con desplazamiento horizontal">
-          <table class="table tabla-asteria align-middle mb-0">
+        <div class="table-responsive tabla-contenedor revelar">
+          <table class="table table-striped tabla-asteria align-middle mb-0">
             <caption class="visually-hidden">Equipos de Asteria Cheer con sus edades, nivel, días y horario de entrenamiento</caption>
             <thead>
               <tr>
@@ -174,38 +173,38 @@
             <tbody>
               <tr>
                 <th scope="row">Mini</th>
-                <td>6 a 10 años</td>
-                <td><span class="nivel">Nivel 1</span></td>
-                <td>Martes y jueves</td>
-                <td>3:00 a 4:30 p. m.</td>
+                <td data-label="Edades">6 a 10 años</td>
+                <td data-label="Nivel"><span class="nivel">Nivel 1</span></td>
+                <td data-label="Días">Martes y jueves</td>
+                <td data-label="Horario">3:00 a 4:30 p. m.</td>
               </tr>
               <tr>
                 <th scope="row">Junior</th>
-                <td>11 a 14 años</td>
-                <td><span class="nivel">Nivel 1-2</span></td>
-                <td>Lunes, miércoles y viernes</td>
-                <td>4:00 a 6:00 p. m.</td>
+                <td data-label="Edades">11 a 14 años</td>
+                <td data-label="Nivel"><span class="nivel">Nivel 1-2</span></td>
+                <td data-label="Días">Lunes, miércoles y viernes</td>
+                <td data-label="Horario">4:00 a 6:00 p. m.</td>
               </tr>
               <tr>
                 <th scope="row">Senior</th>
-                <td>15 a 18 años</td>
-                <td><span class="nivel">Nivel 2-3</span></td>
-                <td>Lunes, miércoles y viernes</td>
-                <td>6:00 a 8:00 p. m.</td>
+                <td data-label="Edades">15 a 18 años</td>
+                <td data-label="Nivel"><span class="nivel">Nivel 2-3</span></td>
+                <td data-label="Días">Lunes, miércoles y viernes</td>
+                <td data-label="Horario">6:00 a 8:00 p. m.</td>
               </tr>
               <tr>
                 <th scope="row">Open 4.2</th>
-                <td>18+ años</td>
-                <td><span class="nivel">Stunts nivel 4 · gimnasia nivel 2</span></td>
-                <td>Martes, jueves y sábado</td>
-                <td>7:00 a 9:30 p. m. (sábado 9:00 a. m. a 12:00 m.)</td>
+                <td data-label="Edades">18+ años</td>
+                <td data-label="Nivel"><span class="nivel">4 en stunts · 2 en gimnasia</span></td>
+                <td data-label="Días">Martes, jueves y sábado</td>
+                <td data-label="Horario"><span>7:00 a 9:30 p. m.<span class="d-block small">Sábado: 9:00 a. m. a 12:00 m.</span></span></td>
               </tr>
               <tr>
                 <th scope="row">Clínica de gimnasia</th>
-                <td>Todas las categorías</td>
-                <td><span class="nivel">Según evaluación</span></td>
-                <td>Sábado</td>
-                <td>7:00 a 9:00 a. m.</td>
+                <td data-label="Edades">Todas las categorías</td>
+                <td data-label="Nivel"><span class="nivel">Según evaluación</span></td>
+                <td data-label="Días">Sábado</td>
+                <td data-label="Horario">7:00 a 9:00 a. m.</td>
               </tr>
             </tbody>
             <tfoot>
@@ -214,7 +213,7 @@
               </tr>
             </tfoot>
           </table>
-        </section>
+        </div>
       </div>
     </section>
 
