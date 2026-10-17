@@ -1,0 +1,35 @@
+{
+  "name": "asteria-cheer",
+  "version": "1.0.0",
+  "description": "Portal web del club de porrismo Asteria Cheer (proyecto académico, Herramientas de Programación III)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:html": "html-validate \"*.html\"",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:js": "eslint .",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "check:rubrica": "node scripts/check-rubrica.js",
+    "check:rubrica:final": "node scripts/check-rubrica.js --final",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "validate": "npm run lint && npm run check:rubrica && npm test",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.html": "html-validate",
+    "css/**/*.css": "stylelint",
+    "*.js": "eslint"
+  },
+  "author": "Valentina Pérez",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^15.15.0",
+    "html-validate": "^9.7.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}

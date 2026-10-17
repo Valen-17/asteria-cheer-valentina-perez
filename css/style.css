@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Asteria Cheer — hoja de estilos propia
+   Orden: 1. Variables  2. Base  3. Navegación  4. Encabezados de página
+          5. Componentes  6. Pie de página  7. Responsive
+   ========================================================================== */
+
+/* 1. Variables (tokens de diseño). Colores y fuentes se usan solo desde aquí. */
+:root {
+  /* Paleta: contraste WCAG AA verificado en las combinaciones usadas */
+  --color-morado: #5b2a86;
+  --color-morado-claro: #7b3fb5;
+  --color-morado-suave: #efe7f7;
+  --color-dorado: #d4af37;
+  --color-dorado-claro: #e6c65c;
+  --color-dorado-oscuro: #8a6d1f; /* dorado para texto sobre fondo claro */
+  --color-negro: #121212;
+  --color-fondo: #f7f5fa;
+  --color-texto: #1e1b24;
+  --color-blanco: #fff;
+  --color-error: #b3261e;
+  --color-exito: #1b7a3d;
+
+  /* Tipografía */
+  --fuente-titulos: "Montserrat", system-ui, sans-serif;
+  --fuente-texto: "Nunito", system-ui, sans-serif;
+
+  /* Espaciado, bordes y sombras */
+  --espacio-seccion: clamp(3rem, 6vw, 5rem);
+  --radio: 0.75rem;
+  --sombra: 0 0.5rem 1.5rem rgb(18 18 18 / 10%);
+  --transicion: 0.25s ease;
+
+  /* Bootstrap toma estos colores para sus componentes */
+  --bs-primary: var(--color-morado);
+  --bs-primary-rgb: 91, 42, 134;
+  --bs-link-color: var(--color-morado);
+  --bs-link-hover-color: var(--color-morado-claro);
+  --bs-body-font-family: var(--fuente-texto);
+  --bs-body-color: var(--color-texto);
+  --bs-body-bg: var(--color-fondo);
+  --bs-heading-color: var(--color-morado);
+}
+
+/* 2. Base */
+body {
+  font-family: var(--fuente-texto);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+.marca {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+}
+
+a {
+  transition: color var(--transicion);
+}
+
+/* Foco visible para navegación con teclado */
+:focus-visible {
+  outline: 3px solid var(--color-dorado);
+  outline-offset: 3px;
+}
+
+/* Enlace para saltar directo al contenido (accesibilidad) */
+.saltar-contenido {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.5rem 1rem;
+  background: var(--color-dorado);
+  color: var(--color-negro);
+  font-weight: 700;
+  border-radius: var(--radio);
+}
+
+.saltar-contenido:focus {
+  top: 1rem;
+}
+
+.seccion {
+  padding-block: var(--espacio-seccion);
+}
+
+.texto-dorado {
+  color: var(--color-dorado-oscuro);
+}
+
+/* 3. Navegación */
+.navbar-asteria {
+  background-color: var(--color-negro);
+  border-bottom: 3px solid var(--color-dorado);
+}
+
+.navbar-asteria .marca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-dorado);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.navbar-asteria .nav-link {
+  color: var(--color-blanco);
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar-asteria .nav-link:hover,
+.navbar-asteria .nav-link[aria-current="page"] {
+  color: var(--color-dorado);
+  border-bottom-color: var(--color-dorado);
+}
+
+.navbar-asteria .navbar-toggler {
+  border-color: var(--color-dorado);
+}
+
+.navbar-asteria .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* 4. Encabezados de página (hero) */
+.hero {
+  background-color: var(--color-morado);
+  color: var(--color-blanco);
+  padding-block: var(--espacio-seccion);
+}
+
+.hero .etiqueta {
+  color: var(--color-dorado-claro);
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.hero p {
+  color: var(--color-morado-suave);
+  max-width: 40rem;
+}
+
+.hero h1 {
+  color: var(--color-blanco);
+}
+
+/* 5. Componentes */
+.btn-dorado {
+  background-color: var(--color-dorado);
+  color: var(--color-negro);
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  border: 2px solid var(--color-dorado);
+  transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.btn-dorado:hover,
+.btn-dorado:focus-visible {
+  background-color: var(--color-dorado-claro);
+  color: var(--color-negro);
+  transform: translateY(-2px);
+}
+
+.btn-contorno {
+  color: var(--color-blanco);
+  border: 2px solid var(--color-blanco);
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
+.btn-contorno:hover,
+.btn-contorno:focus-visible {
+  background-color: var(--color-blanco);
+  color: var(--color-morado);
+}
+
+/* Tarjetas de Bootstrap con identidad del club */
+.card {
+  border: 0;
+  border-top: 4px solid var(--color-dorado);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: transform var(--transicion);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-title {
+  color: var(--color-morado);
+}
+
+/* Panel lateral (aside) */
+.panel-lateral {
+  background-color: var(--color-morado-suave);
+  border-left: 4px solid var(--color-morado);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  padding: 1.5rem;
+}
+
+/* 6. Pie de página */
+.pie {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+  border-top: 3px solid var(--color-dorado);
+}
+
+.pie a {
+  color: var(--color-dorado);
+  text-decoration: none;
+}
+
+.pie a:hover {
+  color: var(--color-dorado-claro);
+}
+
+.pie small {
+  color: #c9c3d1;
+}
+
+/* 7. Responsive (mobile first: los estilos de arriba son para móvil) */
+@media (width >= 992px) {
+  .navbar-asteria .nav-link {
+    margin-inline: 0.25rem;
+  }
+}
+
+/* Respeta usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
