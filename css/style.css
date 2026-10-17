@@ -7,9 +7,9 @@
 /* 1. Variables (tokens de diseño). Colores y fuentes se usan solo desde aquí. */
 :root {
   /* Paleta: contraste WCAG AA verificado en las combinaciones usadas */
-  --color-morado: #5b2a86;
-  --color-morado-claro: #7b3fb5;
-  --color-morado-suave: #efe7f7;
+  --color-morado: #4c007d;
+  --color-morado-claro: #7a10c0;
+  --color-morado-suave: #f1e4fb;
   --color-dorado: #d4af37;
   --color-dorado-claro: #e6c65c;
   --color-dorado-oscuro: #8a6d1f; /* dorado para texto sobre fondo claro */
@@ -32,7 +32,7 @@
 
   /* Bootstrap toma estos colores para sus componentes */
   --bs-primary: var(--color-morado);
-  --bs-primary-rgb: 91, 42, 134;
+  --bs-primary-rgb: 76, 0, 125;
   --bs-link-color: var(--color-morado);
   --bs-link-hover-color: var(--color-morado-claro);
   --bs-body-font-family: var(--fuente-texto);
