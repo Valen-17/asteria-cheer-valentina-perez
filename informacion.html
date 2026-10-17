@@ -56,8 +56,15 @@
 
   <main id="contenido">
     <!-- Encabezado de la página -->
-    <section class="hero" aria-labelledby="titulo-pagina">
+    <section class="hero cielo con-marca-agua" aria-labelledby="titulo-pagina">
+      <span class="marca-agua" aria-hidden="true">Porrismo</span>
       <div class="container">
+        <nav aria-label="Ruta de navegación">
+          <ol class="breadcrumb migas">
+            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">El porrismo</li>
+          </ol>
+        </nav>
         <p class="etiqueta">Conoce el deporte</p>
         <h1 id="titulo-pagina">El porrismo</h1>
         <p class="lead">Mucho más que pompones: acrobacia, fuerza, sincronía y confianza absoluta en el equipo.</p>
@@ -65,7 +72,7 @@
     </section>
 
     <div class="container seccion">
-      <div class="row g-5">
+      <div class="row g-4 g-lg-5">
         <div class="col-lg-8">
           <section aria-labelledby="titulo-que-es">
             <h2 id="titulo-que-es">¿Qué es el porrismo?</h2>
@@ -97,18 +104,37 @@
   </main>
 
   <!-- Pie de página (igual en todas las páginas) -->
-  <footer class="pie">
-    <div class="container py-4">
-      <div class="row gy-3 align-items-center">
-        <div class="col-md-6">
-          <p class="marca text-uppercase mb-1">Asteria Cheer</p>
+  <footer class="pie cielo">
+    <div class="container py-5">
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <a class="marca d-inline-flex align-items-center gap-2 text-uppercase mb-2" href="index.html">
+            <img class="isotipo" src="img/isotipo-asteria.webp" alt="Isotipo de Asteria Cheer" width="44" height="44" loading="lazy">
+            Asteria Cheer
+          </a>
           <p class="mb-0">Cada sueño es una estrella que nos impulsa a avanzar.</p>
         </div>
-        <div class="col-md-6 text-md-end">
-          <p class="mb-1"><i class="bi bi-geo-alt" aria-hidden="true"></i> Medellín, Antioquia</p>
-          <small>&copy; <span data-anio>2026</span> Asteria Cheer · Club ficticio, proyecto académico de Herramientas de Programación III</small>
+        <nav class="col-6 col-lg-3" aria-label="Enlaces del pie de página">
+          <h2>Explora</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="informacion.html">El porrismo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="tabla.html">Equipos</a></li>
+            <li><a href="contacto.html">Inscripción</a></li>
+          </ul>
+        </nav>
+        <div class="col-6 col-lg-4">
+          <h2>Visítanos</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> Medellín, Antioquia</li>
+            <li><i class="bi bi-clock" aria-hidden="true"></i> Lunes a sábado</li>
+            <li><a href="contacto.html"><i class="bi bi-envelope" aria-hidden="true"></i> Escríbenos</a></li>
+          </ul>
         </div>
       </div>
+      <hr class="my-4 opacity-25">
+      <small>&copy; <span data-anio>2026</span> Asteria Cheer · Club ficticio, proyecto académico de Herramientas de Programación III</small>
     </div>
   </footer>
 

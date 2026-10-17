@@ -22,6 +22,18 @@ if (document.querySelector('[data-pausar-carrusel]') && window.bootstrap) {
   cargar('./controller/carruselController.js', ({ iniciarCarruseles }) => iniciarCarruseles(window.bootstrap.Carousel));
 }
 
+// Filtros de la galería
+const galeria = document.querySelector('[data-galeria]');
+if (galeria) {
+  cargar('./controller/galeriaController.js', ({ iniciarGaleria }) => iniciarGaleria(galeria));
+}
+
+// Aparición suave de secciones al hacer scroll (todas las páginas)
+const revelables = document.querySelectorAll('.revelar');
+if (revelables.length) {
+  cargar('./view/animacionesView.js', ({ iniciarRevelado }) => iniciarRevelado(revelables));
+}
+
 // Formulario de inscripción (contacto)
 const formulario = document.querySelector('#form-inscripcion');
 if (formulario) {

@@ -6,7 +6,7 @@
   <title>Club de porrismo en Medellín | Asteria Cheer</title>
   <meta name="description" content="Asteria Cheer es un club de porrismo en Medellín con categorías Mini, Junior, Senior y Open. Entrena acrobacias, pirámides y baile con nosotros.">
   <meta name="keywords" content="porrismo, cheerleading, club de porrismo, Medellín, Asteria Cheer, club deportivo, categorías, inscripciones">
-  <meta name="author" content="Valentina Pérez">
+  <meta name="author" content="Valentina Alejandra Pérez Cardona">
   <meta name="theme-color" content="#4c007d">
   <!-- Open Graph: vista previa al compartir el enlace en redes -->
   <meta property="og:title" content="Club de porrismo en Medellín | Asteria Cheer">
@@ -56,7 +56,8 @@
 
   <main id="contenido">
     <!-- 1. Portada: tipografía grande, logo y cuenta regresiva flotante -->
-    <section class="hero hero-portada" aria-labelledby="titulo-pagina">
+    <section class="hero hero-portada cielo" aria-labelledby="titulo-pagina">
+      <span class="estrella-fugaz" aria-hidden="true"></span>
       <div class="container position-relative">
         <div class="row align-items-center g-4">
           <div class="col-lg-6 order-2 order-lg-1">
@@ -68,7 +69,7 @@
               <a class="btn btn-contorno btn-lg" href="tabla.html">Ver equipos</a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 text-center">
+          <div class="col-lg-6 order-1 order-lg-2 text-center halo">
             <!-- AVIF para navegadores modernos, WebP como respaldo; el navegador elige el ancho según la pantalla -->
             <picture>
               <source type="image/avif" srcset="img/logo-asteria-320.avif 320w, img/logo-asteria-480.avif 480w, img/logo-asteria-640.avif 640w" sizes="(min-width: 992px) 26rem, 15rem">
@@ -109,27 +110,28 @@
     <!-- 3. Pilares del club -->
     <section class="seccion" aria-labelledby="titulo-pilares">
       <div class="container">
-        <p class="sobretitulo">/ Nuestra esencia /</p>
+        <p class="sobretitulo">Nuestra esencia</p>
         <h2 id="titulo-pilares">Mucho más que pompones</h2>
         <ul class="pilares">
-          <li><i class="bi bi-lightning-charge" aria-hidden="true"></i><h3 class="h6">Fuerza</h3><p>Acondicionamiento para bases, flyers y backspots.</p></li>
-          <li><i class="bi bi-bullseye" aria-hidden="true"></i><h3 class="h6">Técnica</h3><p>Progresión segura de stunts, tumbling y pirámides.</p></li>
-          <li><i class="bi bi-shield-check" aria-hidden="true"></i><h3 class="h6">Seguridad</h3><p>Spotters, colchonetas y entrenadores certificados.</p></li>
-          <li><i class="bi bi-people" aria-hidden="true"></i><h3 class="h6">Equipo</h3><p>Aquí nadie vuela sin su equipo: la confianza es la base.</p></li>
+          <li class="pilar revelar"><i class="bi bi-lightning-charge" aria-hidden="true"></i><h3 class="h6">Fuerza</h3><p>Acondicionamiento para bases, flyers y backspots.</p></li>
+          <li class="pilar revelar"><i class="bi bi-bullseye" aria-hidden="true"></i><h3 class="h6">Técnica</h3><p>Progresión segura de stunts, tumbling y pirámides.</p></li>
+          <li class="pilar revelar"><i class="bi bi-shield-check" aria-hidden="true"></i><h3 class="h6">Seguridad</h3><p>Spotters, colchonetas y entrenadores certificados.</p></li>
+          <li class="pilar revelar"><i class="bi bi-people" aria-hidden="true"></i><h3 class="h6">Equipo</h3><p>Aquí nadie vuela sin su equipo: la confianza es la base.</p></li>
         </ul>
       </div>
     </section>
 
     <!-- 4. Categorías (cards de Bootstrap) -->
     <!-- PENDIENTE: confirmar edades y niveles de Mini, Junior y Senior -->
-    <section class="seccion fondo-suave" aria-labelledby="titulo-categorias">
+    <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-categorias">
       <div class="container">
-        <p class="sobretitulo">/ Categorías /</p>
+        <p class="sobretitulo">Categorías</p>
         <h2 id="titulo-categorias">Encuentra tu equipo</h2>
         <p class="mb-4">Entrenamos por edades y niveles para que cada deportista avance a su ritmo.</p>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-          <div class="col">
+          <div class="col revelar">
             <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">01</span>
               <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Mini"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Mini</span></div>
               <div class="card-body">
                 <h3 class="card-title h5">Mini</h3>
@@ -138,8 +140,9 @@
               </div>
             </article>
           </div>
-          <div class="col">
+          <div class="col revelar">
             <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">02</span>
               <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Junior"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Junior</span></div>
               <div class="card-body">
                 <h3 class="card-title h5">Junior</h3>
@@ -148,8 +151,9 @@
               </div>
             </article>
           </div>
-          <div class="col">
+          <div class="col revelar">
             <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">03</span>
               <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Senior"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Senior</span></div>
               <div class="card-body">
                 <h3 class="card-title h5">Senior</h3>
@@ -158,8 +162,9 @@
               </div>
             </article>
           </div>
-          <div class="col">
+          <div class="col revelar">
             <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">04</span>
               <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Open"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Open</span></div>
               <div class="card-body">
                 <h3 class="card-title h5">Open</h3>
@@ -175,12 +180,18 @@
     <!-- 5. Bloques alternos imagen + texto -->
     <section class="seccion" aria-labelledby="titulo-club">
       <div class="container">
-        <p class="sobretitulo">/ El club /</p>
+        <p class="sobretitulo">El club</p>
         <h2 id="titulo-club" class="mb-4">Un lugar para brillar</h2>
-        <article class="card bloque-alterno mb-4">
+        <article class="revelar card bloque-alterno mb-4">
           <div class="row g-0 align-items-center">
             <div class="col-md-6">
-              <div class="espacio-imagen ratio ratio-16x9" role="img" aria-label="Espacio para foto de un entrenamiento"><span><i class="bi bi-image" aria-hidden="true"></i> Foto entrenamiento</span></div>
+              <div class="ratio ratio-16x9 foto-cubre">
+                <picture>
+              <source type="image/avif" srcset="img/galeria-estiramiento-400.avif 400w, img/galeria-estiramiento-458.avif 458w" sizes="(min-width: 768px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-estiramiento-400.webp 400w, img/galeria-estiramiento-458.webp 458w" sizes="(min-width: 768px) 50vw, 100vw">
+              <img src="img/galeria-estiramiento-458.webp" alt="Deportista estirando en el tapete del gimnasio junto a sus compañeras" width="458" height="349" loading="lazy">
+            </picture>
+              </div>
             </div>
             <div class="col-md-6">
               <div class="card-body p-4 p-lg-5">
@@ -191,10 +202,16 @@
             </div>
           </div>
         </article>
-        <article class="card bloque-alterno bloque-oscuro">
+        <article class="revelar card bloque-alterno bloque-oscuro">
           <div class="row g-0 align-items-center flex-md-row-reverse">
             <div class="col-md-6">
-              <div class="espacio-imagen ratio ratio-16x9" role="img" aria-label="Espacio para foto del equipo en competencia"><span><i class="bi bi-image" aria-hidden="true"></i> Foto competencia</span></div>
+              <div class="ratio ratio-16x9 foto-cubre">
+                <picture>
+              <source type="image/avif" srcset="img/galeria-camino-escenario-400.avif 400w, img/galeria-camino-escenario-423.avif 423w" sizes="(min-width: 768px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-camino-escenario-400.webp 400w, img/galeria-camino-escenario-423.webp 423w" sizes="(min-width: 768px) 50vw, 100vw">
+              <img src="img/galeria-camino-escenario-423.webp" alt="Equipo de Asteria Cheer de espaldas caminando hacia un escenario iluminado en morado" width="423" height="549" loading="lazy">
+            </picture>
+              </div>
             </div>
             <div class="col-md-6">
               <div class="card-body p-4 p-lg-5">
@@ -209,32 +226,32 @@
     </section>
 
     <!-- 6. Cómo empezar en 4 pasos -->
-    <section class="seccion fondo-suave" aria-labelledby="titulo-pasos">
+    <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-pasos">
       <div class="container">
         <p class="sobretitulo">/ Cómo empezar /</p>
         <h2 id="titulo-pasos">Tu primer día en 4 pasos</h2>
         <ol class="pasos">
-          <li><span class="numero" aria-hidden="true">01</span><h3 class="h6">Elige tu categoría</h3><p>Según tu edad y experiencia.</p></li>
-          <li><span class="numero" aria-hidden="true">02</span><h3 class="h6">Agenda tu clase de prueba</h3><p>Es gratis y sin compromiso.</p></li>
-          <li><span class="numero" aria-hidden="true">03</span><h3 class="h6">Evaluación de nivel</h3><p>Te ubicamos en el equipo ideal.</p></li>
-          <li><span class="numero" aria-hidden="true">04</span><h3 class="h6">¡A entrenar!</h3><p>Ya eres parte de la familia Asteria.</p></li>
+          <li class="revelar"><span class="numero" aria-hidden="true">01</span><h3 class="h6">Elige tu categoría</h3><p>Según tu edad y experiencia.</p></li>
+          <li class="revelar"><span class="numero" aria-hidden="true">02</span><h3 class="h6">Agenda tu clase de prueba</h3><p>Es gratis y sin compromiso.</p></li>
+          <li class="revelar"><span class="numero" aria-hidden="true">03</span><h3 class="h6">Evaluación de nivel</h3><p>Te ubicamos en el equipo ideal.</p></li>
+          <li class="revelar"><span class="numero" aria-hidden="true">04</span><h3 class="h6">¡A entrenar!</h3><p>Ya eres parte de la familia Asteria.</p></li>
         </ol>
       </div>
     </section>
 
     <!-- 7. Carrusel de momentos (espacios reservados para fotos) -->
-    <section class="seccion seccion-oscura" aria-labelledby="titulo-momentos">
+    <section class="seccion seccion-oscura cielo borde-diagonal" aria-labelledby="titulo-momentos">
       <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
           <div>
-            <p class="sobretitulo">/ Momentos Asteria /</p>
+            <p class="sobretitulo">Momentos Asteria</p>
             <h2 id="titulo-momentos" class="mb-0">Así brillamos</h2>
           </div>
           <button class="btn btn-contorno btn-sm" type="button" data-pausar-carrusel="carrusel-momentos" aria-pressed="false">
             <i class="bi bi-pause-fill" aria-hidden="true"></i> <span data-texto>Pausar carrusel</span>
           </button>
         </div>
-        <div id="carrusel-momentos" class="carousel slide carrusel-asteria" data-bs-ride="carousel" data-bs-interval="5000">
+        <div id="carrusel-momentos" class="carousel slide carrusel-asteria revelar" data-bs-ride="carousel" data-bs-interval="5000">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carrusel-momentos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Momento 1"></button>
             <button type="button" data-bs-target="#carrusel-momentos" data-bs-slide-to="1" aria-label="Momento 2"></button>
@@ -242,15 +259,33 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="espacio-imagen ratio ratio-21x9" role="img" aria-label="Espacio para foto de una pirámide"><span><i class="bi bi-image" aria-hidden="true"></i> Foto pirámide</span></div>
+              <div class="ratio">
+              <picture>
+              <source type="image/avif" srcset="img/galeria-piramide-escenario-400.avif 400w, img/galeria-piramide-escenario-786.avif 786w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <source type="image/webp" srcset="img/galeria-piramide-escenario-400.webp 400w, img/galeria-piramide-escenario-786.webp 786w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <img src="img/galeria-piramide-escenario-786.webp" alt="Pirámide de Asteria Cheer en el escenario: una flyer en heel stretch sostenida por sus bases frente al logo gigante del club" width="786" height="638" loading="lazy">
+            </picture>
+              </div>
               <div class="carousel-caption"><p class="h5">Pirámides que desafían la gravedad</p></div>
             </div>
             <div class="carousel-item">
-              <div class="espacio-imagen ratio ratio-21x9" role="img" aria-label="Espacio para foto de un stunt"><span><i class="bi bi-image" aria-hidden="true"></i> Foto stunt</span></div>
-              <div class="carousel-caption"><p class="h5">Flyers que vuelan alto</p></div>
+              <div class="ratio">
+              <picture>
+              <source type="image/avif" srcset="img/galeria-estiramiento-458.avif 458w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <source type="image/webp" srcset="img/galeria-estiramiento-458.webp 458w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <img src="img/galeria-estiramiento-458.webp" alt="Deportista estirando en el tapete del gimnasio junto a sus compañeras" width="458" height="349" loading="lazy">
+            </picture>
+              </div>
+              <div class="carousel-caption"><p class="h5">Entrenamos cada detalle</p></div>
             </div>
             <div class="carousel-item">
-              <div class="espacio-imagen ratio ratio-21x9" role="img" aria-label="Espacio para foto del equipo celebrando"><span><i class="bi bi-image" aria-hidden="true"></i> Foto celebración</span></div>
+              <div class="ratio">
+              <picture>
+              <source type="image/avif" srcset="img/galeria-equipo-unido-400.avif 400w, img/galeria-equipo-unido-458.avif 458w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <source type="image/webp" srcset="img/galeria-equipo-unido-400.webp 400w, img/galeria-equipo-unido-458.webp 458w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <img src="img/galeria-equipo-unido-458.webp" alt="Deportistas de Asteria Cheer reunidas en círculo con las manos juntas antes de competir" width="458" height="402" loading="lazy">
+            </picture>
+              </div>
               <div class="carousel-caption"><p class="h5">Celebramos en equipo cada logro</p></div>
             </div>
           </div>
@@ -267,8 +302,9 @@
     </section>
 
     <!-- 8. Llamado a la acción -->
-    <section class="cta-final" aria-labelledby="titulo-cta">
-      <div class="container text-center">
+    <section class="cta-final cielo con-marca-agua" aria-labelledby="titulo-cta">
+      <span class="marca-agua" aria-hidden="true">Asteria</span>
+      <div class="container text-center revelar">
         <h2 id="titulo-cta" class="titulo-gigante">Únete <span class="texto-estrella">al equipo</span></h2>
         <p class="lead mx-auto">Tu primera clase es gratis. Ven, prueba y descubre hasta dónde puedes volar.</p>
         <a class="btn btn-dorado btn-lg" href="contacto.html">Quiero inscribirme</a>
@@ -277,18 +313,37 @@
   </main>
 
   <!-- Pie de página (igual en todas las páginas) -->
-  <footer class="pie">
-    <div class="container py-4">
-      <div class="row gy-3 align-items-center">
-        <div class="col-md-6">
-          <p class="marca text-uppercase mb-1">Asteria Cheer</p>
+  <footer class="pie cielo">
+    <div class="container py-5">
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <a class="marca d-inline-flex align-items-center gap-2 text-uppercase mb-2" href="index.html">
+            <img class="isotipo" src="img/isotipo-asteria.webp" alt="Isotipo de Asteria Cheer" width="44" height="44" loading="lazy">
+            Asteria Cheer
+          </a>
           <p class="mb-0">Cada sueño es una estrella que nos impulsa a avanzar.</p>
         </div>
-        <div class="col-md-6 text-md-end">
-          <p class="mb-1"><i class="bi bi-geo-alt" aria-hidden="true"></i> Medellín, Antioquia</p>
-          <small>&copy; <span data-anio>2026</span> Asteria Cheer · Club ficticio, proyecto académico de Herramientas de Programación III</small>
+        <nav class="col-6 col-lg-3" aria-label="Enlaces del pie de página">
+          <h2>Explora</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="informacion.html">El porrismo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="tabla.html">Equipos</a></li>
+            <li><a href="contacto.html">Inscripción</a></li>
+          </ul>
+        </nav>
+        <div class="col-6 col-lg-4">
+          <h2>Visítanos</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> Medellín, Antioquia</li>
+            <li><i class="bi bi-clock" aria-hidden="true"></i> Lunes a sábado</li>
+            <li><a href="contacto.html"><i class="bi bi-envelope" aria-hidden="true"></i> Escríbenos</a></li>
+          </ul>
         </div>
       </div>
+      <hr class="my-4 opacity-25">
+      <small>&copy; <span data-anio>2026</span> Asteria Cheer · Club ficticio, proyecto académico de Herramientas de Programación III</small>
     </div>
   </footer>
 

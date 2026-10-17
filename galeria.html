@@ -56,18 +56,168 @@
 
   <main id="contenido">
     <!-- Encabezado de la página -->
-    <section class="hero" aria-labelledby="titulo-pagina">
+    <section class="hero cielo con-marca-agua" aria-labelledby="titulo-pagina">
+      <span class="marca-agua" aria-hidden="true">Galería</span>
       <div class="container">
+        <nav aria-label="Ruta de navegación">
+          <ol class="breadcrumb migas">
+            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Galería</li>
+          </ol>
+        </nav>
         <p class="etiqueta">Momentos Asteria</p>
         <h1 id="titulo-pagina">Galería</h1>
         <p class="lead">Entrenamientos, pirámides y competencias: así brillan nuestras estrellas.</p>
       </div>
     </section>
 
-    <section class="seccion" aria-labelledby="titulo-fotos">
+    <!-- Destacados: carrusel con miniaturas -->
+    <section class="seccion" aria-labelledby="titulo-destacados">
       <div class="container">
-        <h2 id="titulo-fotos">Fotos</h2>
-        <p>Contenido en construcción.</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+          <div>
+            <p class="sobretitulo">/ Destacados /</p>
+            <h2 id="titulo-destacados" class="mb-0">Lo mejor de la temporada</h2>
+          </div>
+          <button class="btn btn-outline-primary btn-sm" type="button" data-pausar-carrusel="carrusel-destacados" aria-pressed="false">
+            <i class="bi bi-pause-fill" aria-hidden="true"></i> <span data-texto>Pausar carrusel</span>
+          </button>
+        </div>
+        <div id="carrusel-destacados" class="carousel slide carrusel-asteria" data-bs-ride="carousel" data-bs-interval="6000">
+          <div class="position-relative">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="ratio">
+              <picture>
+              <source type="image/avif" srcset="img/galeria-piramide-escenario-400.avif 400w, img/galeria-piramide-escenario-786.avif 786w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <source type="image/webp" srcset="img/galeria-piramide-escenario-400.webp 400w, img/galeria-piramide-escenario-786.webp 786w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <img src="img/galeria-piramide-escenario-786.webp" alt="Pirámide de Asteria Cheer en el escenario: una flyer en heel stretch sostenida por sus bases frente al logo gigante del club" width="786" height="638" loading="lazy">
+            </picture>
+              </div>
+              <div class="carousel-caption"><p class="h5">Pirámide de campeonato</p></div>
+            </div>
+            <div class="carousel-item">
+              <div class="ratio">
+              <picture>
+              <source type="image/avif" srcset="img/galeria-camino-escenario-400.avif 400w, img/galeria-camino-escenario-423.avif 423w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <source type="image/webp" srcset="img/galeria-camino-escenario-400.webp 400w, img/galeria-camino-escenario-423.webp 423w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <img src="img/galeria-camino-escenario-423.webp" alt="Equipo de Asteria Cheer de espaldas caminando hacia un escenario iluminado en morado" width="423" height="549" loading="lazy">
+            </picture>
+              </div>
+              <div class="carousel-caption"><p class="h5">Camino al escenario</p></div>
+            </div>
+            <div class="carousel-item">
+              <div class="ratio">
+              <picture>
+              <source type="image/avif" srcset="img/galeria-equipo-unido-400.avif 400w, img/galeria-equipo-unido-458.avif 458w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <source type="image/webp" srcset="img/galeria-equipo-unido-400.webp 400w, img/galeria-equipo-unido-458.webp 458w" sizes="(min-width: 1200px) 1140px, 100vw">
+              <img src="img/galeria-equipo-unido-458.webp" alt="Deportistas de Asteria Cheer reunidas en círculo con las manos juntas antes de competir" width="458" height="402" loading="lazy">
+            </picture>
+              </div>
+              <div class="carousel-caption"><p class="h5">Juntos somos más fuertes</p></div>
+            </div>
+            <div class="carousel-item">
+              <div class="espacio-imagen ratio" role="img" aria-label="Espacio para foto podio"><span><i class="bi bi-image" aria-hidden="true"></i> Foto podio</span></div>
+              <div class="carousel-caption"><p class="h5">El equipo en el podio</p></div>
+            </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-destacados" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carrusel-destacados" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+          <div class="carousel-indicators miniaturas">
+          <button type="button" data-bs-target="#carrusel-destacados" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Ver destacado 1: Pirámide de campeonato">
+            <span class="ratio ratio-4x3 d-block"><img src="img/galeria-piramide-escenario-400.webp" alt="Miniatura: Pirámide de campeonato" width="400" height="300" loading="lazy"></span>
+          </button>
+          <button type="button" data-bs-target="#carrusel-destacados" data-bs-slide-to="1" aria-label="Ver destacado 2: Camino al escenario">
+            <span class="ratio ratio-4x3 d-block"><img src="img/galeria-camino-escenario-400.webp" alt="Miniatura: Camino al escenario" width="400" height="300" loading="lazy"></span>
+          </button>
+          <button type="button" data-bs-target="#carrusel-destacados" data-bs-slide-to="2" aria-label="Ver destacado 3: Juntos somos más fuertes">
+            <span class="ratio ratio-4x3 d-block"><img src="img/galeria-equipo-unido-400.webp" alt="Miniatura: Juntos somos más fuertes" width="400" height="300" loading="lazy"></span>
+          </button>
+          <button type="button" data-bs-target="#carrusel-destacados" data-bs-slide-to="3" aria-label="Ver destacado 4: El equipo en el podio">
+            <span class="espacio-imagen ratio ratio-4x3 d-block"><span>El equipo en el podio</span></span>
+          </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fotos: filtros + mosaico -->
+    <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-fotos" data-galeria>
+      <div class="container">
+        <p class="sobretitulo">/ Fotos /</p>
+        <h2 id="titulo-fotos">Nuestros momentos</h2>
+        <div class="filtros" role="group" aria-label="Filtrar fotos por categoría">
+          <button class="filtro" type="button" data-filtro="todos" aria-pressed="true">Todas</button>
+          <button class="filtro" type="button" data-filtro="entrenamientos" aria-pressed="false">Entrenamientos</button>
+          <button class="filtro" type="button" data-filtro="competencias" aria-pressed="false">Competencias</button>
+          <button class="filtro" type="button" data-filtro="eventos" aria-pressed="false">Eventos</button>
+        </div>
+        <p class="visually-hidden" aria-live="polite" data-estado-galeria></p>
+        <div class="mosaico">
+          <figure id="foto-1" class="alta revelar" data-categoria="entrenamientos">
+            <picture>
+              <source type="image/avif" srcset="img/galeria-estiramiento-400.avif 400w, img/galeria-estiramiento-458.avif 458w" sizes="(min-width: 992px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-estiramiento-400.webp 400w, img/galeria-estiramiento-458.webp 458w" sizes="(min-width: 992px) 50vw, 100vw">
+              <img src="img/galeria-estiramiento-458.webp" alt="Deportista estirando en el tapete del gimnasio junto a sus compañeras" width="458" height="349" loading="lazy">
+            </picture>
+            <figcaption>Calentamiento y flexibilidad</figcaption>
+          </figure>
+          <figure id="foto-2" class="ancha revelar" data-categoria="competencias">
+            <picture>
+              <source type="image/avif" srcset="img/galeria-piramide-escenario-400.avif 400w, img/galeria-piramide-escenario-786.avif 786w" sizes="(min-width: 992px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-piramide-escenario-400.webp 400w, img/galeria-piramide-escenario-786.webp 786w" sizes="(min-width: 992px) 50vw, 100vw">
+              <img src="img/galeria-piramide-escenario-786.webp" alt="Pirámide de Asteria Cheer en el escenario: una flyer en heel stretch sostenida por sus bases frente al logo gigante del club" width="786" height="638" loading="lazy">
+            </picture>
+            <figcaption>Pirámide final en el escenario</figcaption>
+          </figure>
+          <figure id="foto-3" class="revelar" data-categoria="entrenamientos">
+            <picture>
+              <source type="image/avif" srcset="img/galeria-stunt-entrenamiento-357.avif 357w" sizes="(min-width: 992px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-stunt-entrenamiento-357.webp 357w" sizes="(min-width: 992px) 50vw, 100vw">
+              <img src="img/galeria-stunt-entrenamiento-357.webp" alt="Flyer con los brazos en alto sostenida por sus bases durante un entrenamiento en el gimnasio" width="357" height="404" loading="lazy">
+            </picture>
+            <figcaption>Práctica de stunts</figcaption>
+          </figure>
+          <figure id="foto-4" class="revelar" data-categoria="eventos">
+            <div class="espacio-imagen" role="img" aria-label="Espacio para foto: presentación en evento de ciudad"><span><i class="bi bi-image" aria-hidden="true"></i> Foto 4</span></div>
+            <figcaption>Presentación en evento de ciudad</figcaption>
+          </figure>
+          <figure id="foto-5" class="alta revelar" data-categoria="competencias">
+            <picture>
+              <source type="image/avif" srcset="img/galeria-camino-escenario-400.avif 400w, img/galeria-camino-escenario-423.avif 423w" sizes="(min-width: 992px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-camino-escenario-400.webp 400w, img/galeria-camino-escenario-423.webp 423w" sizes="(min-width: 992px) 50vw, 100vw">
+              <img src="img/galeria-camino-escenario-423.webp" alt="Equipo de Asteria Cheer de espaldas caminando hacia un escenario iluminado en morado" width="423" height="549" loading="lazy">
+            </picture>
+            <figcaption>Camino al escenario</figcaption>
+          </figure>
+          <figure id="foto-6" class="ancha revelar" data-categoria="competencias">
+            <picture>
+              <source type="image/avif" srcset="img/galeria-equipo-unido-400.avif 400w, img/galeria-equipo-unido-458.avif 458w" sizes="(min-width: 992px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-equipo-unido-400.webp 400w, img/galeria-equipo-unido-458.webp 458w" sizes="(min-width: 992px) 50vw, 100vw">
+              <img src="img/galeria-equipo-unido-458.webp" alt="Deportistas de Asteria Cheer reunidas en círculo con las manos juntas antes de competir" width="458" height="402" loading="lazy">
+            </picture>
+            <figcaption>El equipo unido antes de salir</figcaption>
+          </figure>
+          <figure id="foto-7" class="revelar" data-categoria="entrenamientos">
+            <div class="espacio-imagen" role="img" aria-label="Espacio para foto: tumbling: series de piso"><span><i class="bi bi-image" aria-hidden="true"></i> Foto 7</span></div>
+            <figcaption>Tumbling: series de piso</figcaption>
+          </figure>
+          <figure id="foto-8" class="revelar" data-categoria="competencias">
+            <picture>
+              <source type="image/avif" srcset="img/galeria-concentracion-400.avif 400w, img/galeria-concentracion-458.avif 458w" sizes="(min-width: 992px) 50vw, 100vw">
+              <source type="image/webp" srcset="img/galeria-concentracion-400.webp 400w, img/galeria-concentracion-458.webp 458w" sizes="(min-width: 992px) 50vw, 100vw">
+              <img src="img/galeria-concentracion-458.webp" alt="Porrista de Asteria Cheer concentrada antes de salir a competir" width="458" height="268" loading="lazy">
+            </picture>
+            <figcaption>Concentración antes de la rutina</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -76,7 +226,7 @@
       <div class="container">
         <h2 id="titulo-uniforme">Uniforme 2026</h2>
         <p>Negro, morado y dorado: los colores de nuestra marca en cada detalle, de la cabeza a los tenis.</p>
-        <div class="galeria-uniforme">
+        <div class="galeria-uniforme revelar">
           <figure class="figura-galeria">
             <picture>
               <source type="image/avif" srcset="img/uniforme-frente-210.avif 210w, img/uniforme-frente-420.avif 420w" sizes="(min-width: 992px) 20rem, 45vw">
@@ -105,17 +255,22 @@
       </div>
     </section>
 
+    <!-- Video -->
     <div class="seccion pt-0">
       <div class="container">
-        <div class="row g-4">
-          <article class="col-lg-8">
-            <h2 id="titulo-video">Video</h2>
-            <p>Contenido en construcción.</p>
+        <div class="row g-4 align-items-center">
+          <article class="col-lg-8 revelar">
+            <p class="sobretitulo">/ En movimiento /</p>
+            <h2 id="titulo-video">Mira una rutina completa</h2>
+            <div class="espacio-imagen espacio-video ratio ratio-16x9" role="img" aria-label="Espacio para el video de YouTube de una rutina">
+              <span><i class="bi bi-play-circle" aria-hidden="true"></i> Video de rutina (YouTube)</span>
+            </div>
           </article>
-          <aside class="col-lg-4" aria-labelledby="titulo-comparte">
+          <aside class="col-lg-4 revelar" aria-labelledby="titulo-comparte">
             <div class="panel-lateral">
               <h2 id="titulo-comparte" class="h5">Comparte tus fotos</h2>
-              <p class="mb-0">Contenido en construcción.</p>
+              <p class="mb-3">¿Tienes fotos de una competencia o un entrenamiento? Envíanoslas y las publicamos con tu nombre.</p>
+              <a class="btn btn-outline-primary btn-sm" href="contacto.html">Enviar fotos</a>
             </div>
           </aside>
         </div>
@@ -124,18 +279,37 @@
   </main>
 
   <!-- Pie de página (igual en todas las páginas) -->
-  <footer class="pie">
-    <div class="container py-4">
-      <div class="row gy-3 align-items-center">
-        <div class="col-md-6">
-          <p class="marca text-uppercase mb-1">Asteria Cheer</p>
+  <footer class="pie cielo">
+    <div class="container py-5">
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <a class="marca d-inline-flex align-items-center gap-2 text-uppercase mb-2" href="index.html">
+            <img class="isotipo" src="img/isotipo-asteria.webp" alt="Isotipo de Asteria Cheer" width="44" height="44" loading="lazy">
+            Asteria Cheer
+          </a>
           <p class="mb-0">Cada sueño es una estrella que nos impulsa a avanzar.</p>
         </div>
-        <div class="col-md-6 text-md-end">
-          <p class="mb-1"><i class="bi bi-geo-alt" aria-hidden="true"></i> Medellín, Antioquia</p>
-          <small>&copy; <span data-anio>2026</span> Asteria Cheer · Club ficticio, proyecto académico de Herramientas de Programación III</small>
+        <nav class="col-6 col-lg-3" aria-label="Enlaces del pie de página">
+          <h2>Explora</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="informacion.html">El porrismo</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="tabla.html">Equipos</a></li>
+            <li><a href="contacto.html">Inscripción</a></li>
+          </ul>
+        </nav>
+        <div class="col-6 col-lg-4">
+          <h2>Visítanos</h2>
+          <ul>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i> Medellín, Antioquia</li>
+            <li><i class="bi bi-clock" aria-hidden="true"></i> Lunes a sábado</li>
+            <li><a href="contacto.html"><i class="bi bi-envelope" aria-hidden="true"></i> Escríbenos</a></li>
+          </ul>
         </div>
       </div>
+      <hr class="my-4 opacity-25">
+      <small>&copy; <span data-anio>2026</span> Asteria Cheer · Club ficticio, proyecto académico de Herramientas de Programación III</small>
     </div>
   </footer>
 

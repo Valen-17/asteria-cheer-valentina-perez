@@ -42,9 +42,9 @@ async function optimizar(archivo, anchos) {
   const nombre = nombreSeguro(archivo);
   const { width: anchoOriginal, height: altoOriginal } = await sharp(archivo).metadata();
 
-  // Nunca se agranda una imagen: solo anchos menores o iguales al original
-  const anchosValidos = anchos.filter((a) => a <= anchoOriginal);
-  if (anchosValidos.length === 0) anchosValidos.push(anchoOriginal);
+  // Nunca se agranda una imagen: solo anchos menores al original; si se pidió uno mayor, se usa el original
+  const anchosValidos = anchos.filter((a) => a < anchoOriginal);
+  if (anchos.some((a) => a >= anchoOriginal)) anchosValidos.push(anchoOriginal);
 
   const generados = [];
   for (const ancho of anchosValidos) {
