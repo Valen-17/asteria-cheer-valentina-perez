@@ -39,7 +39,7 @@ asteria-cheer/
 
 | Token | Color | Uso |
 |---|---|---|
-| `--color-morado` | `#5b2a86` | Hero, títulos, enlaces |
+| `--color-morado` | `#4c007d` | Hero, títulos, enlaces |
 | `--color-dorado` | `#d4af37` | Botones, bordes y detalles sobre fondo oscuro |
 | `--color-negro` | `#121212` | Navegación y pie de página |
 | `--color-fondo` | `#f7f5fa` | Fondo general |
