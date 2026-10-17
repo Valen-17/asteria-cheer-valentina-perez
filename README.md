@@ -79,5 +79,4 @@ Abrir el sitio con la extensión Live Server de VS Code (los módulos de JavaScr
 - Logo e isotipo: generados con IA para este proyecto.
 - Uniforme 2026 (frente, espalda y moño en la galería): diseño conceptual generado con IA.
 
-- Fotos de categorías (Mini, Junior, Senior, Open), podios, pirámide en el gimnasio, moño y uniforme completo: generadas con IA para este proyecto.
-- Fotos del escenario y la arena (heel stretch, pirámide final, formación, final con fuegos, baile): fotogramas de los videos de rutina generados con IA.
+- Fotos de categorías (Mini, Junior, Senior, Open), campeonas en el podio (y su recorte de detalle), pirámide en el gimnasio, moño y uniforme completo: generadas con IA para este proyecto.
