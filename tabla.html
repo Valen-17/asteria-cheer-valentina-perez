@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Equipos y horarios | Asteria Cheer</title>
-  <meta name="description" content="Equipos de Asteria Cheer por categoría: edades, nivel, horarios de entrenamiento y entrenadores.">
+  <meta name="description" content="Equipos Mini, Junior, Senior y Open 4.2 de Asteria Cheer: edades, niveles, horarios de entrenamiento y sede en el Coliseo de Gimnasia del Estadio Atanasio Girardot.">
   <meta name="keywords" content="porrismo, cheerleading, club de porrismo, Medellín, Asteria Cheer, equipos, horarios, categorías, niveles">
   <meta name="author" content="Valentina Pérez">
   <meta name="theme-color" content="#4c007d">
   <!-- Open Graph: vista previa al compartir el enlace en redes -->
   <meta property="og:title" content="Equipos y horarios | Asteria Cheer">
-  <meta property="og:description" content="Equipos de Asteria Cheer por categoría: edades, nivel, horarios de entrenamiento y entrenadores.">
+  <meta property="og:description" content="Equipos Mini, Junior, Senior y Open 4.2 de Asteria Cheer: edades, niveles, horarios de entrenamiento y sede en el Coliseo de Gimnasia del Estadio Atanasio Girardot.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <meta property="og:image" content="img/og-asteria.jpg">
@@ -71,23 +71,190 @@
       </div>
     </section>
 
-    <section class="seccion" aria-labelledby="titulo-tabla">
+    <!-- Equipos (cards de Bootstrap) -->
+    <!-- PENDIENTE: confirmar niveles de Mini, Junior y Senior -->
+    <section class="seccion" aria-labelledby="titulo-equipos">
       <div class="container">
-        <h2 id="titulo-tabla">Nuestros equipos</h2>
-        <p>Contenido en construcción.</p>
+        <p class="sobretitulo">/ Categorías /</p>
+        <h2 id="titulo-equipos">Nuestros equipos</h2>
+        <p class="mb-4">En Asteria Cheer contamos con diferentes categorías adaptadas al desarrollo deportivo y técnico de cada atleta.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <div class="col revelar">
+            <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">01</span>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-mini-400.avif 400w, img/categoria-mini-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-mini-400.webp 400w, img/categoria-mini-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-mini-800.webp" alt="Niñas del equipo Mini practicando un stunt en el gimnasio" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Equipo Mini</h3>
+                <ul class="etiquetas"><li>6 a 10 años</li><li>Nivel 1</li></ul>
+                <p class="card-text">Diseñado para las deportistas más jóvenes que están iniciando su camino en el porrismo, donde desarrollan flexibilidad, coordinación básica y los primeros fundamentos de acrobacia y stunts.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col revelar">
+            <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">02</span>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-junior-400.avif 400w, img/categoria-junior-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-junior-400.webp 400w, img/categoria-junior-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-junior-800.webp" alt="Equipo Junior entrenando una extensión en el gimnasio" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Equipo Junior</h3>
+                <ul class="etiquetas"><li>11 a 14 años</li><li>Nivel 1-2</li></ul>
+                <p class="card-text">Enfocado en deportistas en etapa de crecimiento técnico, donde se consolidan saltos, transiciones en pirámides y acrobacias de nivel intermedio con mayor velocidad y precisión.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col revelar">
+            <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">03</span>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-senior-400.avif 400w, img/categoria-senior-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-senior-400.webp 400w, img/categoria-senior-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-senior-800.webp" alt="Equipo Senior entrenando stunts y tumbling en el gimnasio" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Equipo Senior</h3>
+                <ul class="etiquetas"><li>15 a 18 años</li><li>Nivel 2-3</li></ul>
+                <p class="card-text">Categoría de alto rendimiento que exige una gran preparación física y disciplina, ejecutando rutinas complejas con lanzamientos, stunts de alta dificultad y secuencias gimnásticas avanzadas.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col revelar">
+            <article class="card h-100">
+              <span class="numero-card" aria-hidden="true">04</span>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-open-400.avif 400w, img/categoria-open-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-open-400.webp 400w, img/categoria-open-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-open-800.webp" alt="Equipo Open 4.2 levantando una pirámide en el gimnasio" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Equipo Open 4.2</h3>
+                <ul class="etiquetas"><li>18+ años</li><li>Nivel 4.2</li></ul>
+                <p class="card-text">Nuestro equipo de categoría abierta que combina una exigencia técnica de nivel 4 en stunts y pirámides con elementos de nivel 2 en gimnasia, ideal para deportistas con experiencia que buscan competir al máximo nivel.</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
-    <div class="seccion pt-0">
+
+    <!-- Tabla de horarios y niveles -->
+    <!-- PENDIENTE: confirmar días y horarios reales de entrenamiento -->
+    <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-tabla">
       <div class="container">
-        <div class="row g-4">
-          <article class="col-lg-8">
+        <p class="sobretitulo">/ Horarios /</p>
+        <h2 id="titulo-tabla">Horarios y niveles</h2>
+        <p class="mb-4">Todos los equipos entrenan en la misma sede, con calentamiento, técnica y montaje de rutina en cada sesión.</p>
+        <p class="small d-md-none"><i class="bi bi-arrow-left-right" aria-hidden="true"></i> Desliza la tabla para ver todas las columnas.</p>
+        <section class="table-responsive tabla-contenedor revelar" tabindex="0" aria-label="Tabla de horarios con desplazamiento horizontal">
+          <table class="table tabla-asteria align-middle mb-0">
+            <caption class="visually-hidden">Equipos de Asteria Cheer con sus edades, nivel, días y horario de entrenamiento</caption>
+            <thead>
+              <tr>
+                <th scope="col">Equipo</th>
+                <th scope="col">Edades</th>
+                <th scope="col">Nivel</th>
+                <th scope="col">Días</th>
+                <th scope="col">Horario</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Mini</th>
+                <td>6 a 10 años</td>
+                <td><span class="nivel">Nivel 1</span></td>
+                <td>Martes y jueves</td>
+                <td>3:00 a 4:30 p. m.</td>
+              </tr>
+              <tr>
+                <th scope="row">Junior</th>
+                <td>11 a 14 años</td>
+                <td><span class="nivel">Nivel 1-2</span></td>
+                <td>Lunes, miércoles y viernes</td>
+                <td>4:00 a 6:00 p. m.</td>
+              </tr>
+              <tr>
+                <th scope="row">Senior</th>
+                <td>15 a 18 años</td>
+                <td><span class="nivel">Nivel 2-3</span></td>
+                <td>Lunes, miércoles y viernes</td>
+                <td>6:00 a 8:00 p. m.</td>
+              </tr>
+              <tr>
+                <th scope="row">Open 4.2</th>
+                <td>18+ años</td>
+                <td><span class="nivel">Stunts nivel 4 · gimnasia nivel 2</span></td>
+                <td>Martes, jueves y sábado</td>
+                <td>7:00 a 9:30 p. m. (sábado 9:00 a. m. a 12:00 m.)</td>
+              </tr>
+              <tr>
+                <th scope="row">Clínica de gimnasia</th>
+                <td>Todas las categorías</td>
+                <td><span class="nivel">Según evaluación</span></td>
+                <td>Sábado</td>
+                <td>7:00 a 9:00 a. m.</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5"><i class="bi bi-geo-alt" aria-hidden="true"></i> Sede de todos los entrenamientos: Coliseo de Gimnasia del Estadio Atanasio Girardot, Medellín. Los horarios pueden cambiar en temporada de competencia.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    </section>
+
+    <!-- Cómo elegir tu equipo + sede -->
+    <div class="seccion">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <article class="col-lg-8 revelar">
+            <p class="sobretitulo">/ Evaluación /</p>
             <h2 id="titulo-como-elegir">¿Cómo elegir tu equipo?</h2>
-            <p>Contenido en construcción.</p>
+            <p>Tu equipo ideal no se asigna al azar. La ubicación en cada categoría se realiza mediante una evaluación diagnóstica donde consideramos:</p>
+            <ul class="criterios">
+              <li>
+                <i class="bi bi-calendar-heart" aria-hidden="true"></i>
+                <div>
+                  <h3 class="h6">Edad</h3>
+                  <p>Para ubicarte en el rango de categoría correspondiente según la normativa de juzgamiento.</p>
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                <div>
+                  <h3 class="h6">Habilidades previas y nivel técnico</h3>
+                  <p>Evaluamos tu fuerza, flexibilidad, técnica en saltos y experiencia previa en gimnasia o stunts para asignarte al grupo donde puedas evolucionar de forma segura y potenciar tus capacidades.</p>
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn-dorado" href="contacto.html">Agenda tu evaluación</a>
           </article>
-          <aside class="col-lg-4" aria-labelledby="titulo-sede">
+          <aside class="col-lg-4 revelar" aria-labelledby="titulo-sede">
             <div class="panel-lateral">
               <h2 id="titulo-sede" class="h5">Sede de entrenamiento</h2>
-              <p class="mb-0">Contenido en construcción.</p>
+              <p>Nuestras prácticas y entrenamientos se llevan a cabo en instalaciones equipadas con la infraestructura técnica necesaria para la práctica segura del porrismo.</p>
+              <dl class="datos-sede">
+                <dt><i class="bi bi-building" aria-hidden="true"></i> Lugar</dt>
+                <dd>Coliseo de Gimnasia del Estadio Atanasio Girardot</dd>
+                <dt><i class="bi bi-geo-alt" aria-hidden="true"></i> Ubicación</dt>
+                <dd>Medellín, Antioquia</dd>
+              </dl>
+              <a class="btn btn-outline-primary btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Coliseo+de+Gimnasia+Estadio+Atanasio+Girardot+Medell%C3%ADn" target="_blank" rel="noopener">Ver en el mapa <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i><span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
             </div>
           </aside>
         </div>
