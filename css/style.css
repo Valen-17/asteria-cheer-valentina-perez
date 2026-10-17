@@ -914,9 +914,9 @@ a {
   border-radius: var(--radio-grande);
 }
 
-/* Carruseles más compactos en pantallas grandes (el encabezado usa el mismo ancho) */
+/* Carruseles un poco más compactos en pantallas grandes (el encabezado usa el mismo ancho) */
 .carrusel-ancho {
-  max-width: 52rem;
+  max-width: 62rem;
   margin-inline: auto;
 }
 
