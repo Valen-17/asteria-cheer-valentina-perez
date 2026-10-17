@@ -61,7 +61,8 @@ Abrir el sitio con la extensión Live Server de VS Code (los módulos de JavaScr
 | `npm run lint` | Valida HTML, CSS y JavaScript |
 | `npm run check:rubrica` | Revisa la estructura que exige la rúbrica en cada página |
 | `npm run check:rubrica:final` | Además exige los mínimos de contenido (galería, tabla, cards, formulario) |
-| `npm test` | Pruebas unitarias del modelo del formulario |
+| `npm test` | Pruebas unitarias |
+| `npm run imagenes -- originales/galeria/*.jpg` | Genera versiones AVIF y WebP (480, 800 y 1200 px) en `img/`, sin metadatos EXIF, e imprime el `<picture>` listo para copiar. Con `--anchos 320,480,640` se eligen otros anchos |
 | `npm run validate` | Todo lo anterior (excepto el chequeo final) |
 
 ## Flujo de trabajo

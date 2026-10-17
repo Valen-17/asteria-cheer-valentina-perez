@@ -60,8 +60,14 @@ for (const pagina of PAGINAS) {
     if (!html.includes(`href="${destino}"`)) fallo(pagina, `la navegación no enlaza a ${destino}`);
   }
 
-  // Recursos locales (src/href) existen con el nombre exacto
-  for (const [, ruta] of html.matchAll(/(?:src|href)="([^"#?:]+)(?:[#?][^"]*)?"/g)) {
+  // Recursos locales (src, href, srcset, og:image) existen con el nombre exacto
+  const rutas = [...html.matchAll(/(?:src|href)="([^"#?:]+)(?:[#?][^"]*)?"/g)].map((m) => m[1]);
+  for (const [, srcset] of html.matchAll(/srcset="([^"]+)"/g)) {
+    rutas.push(...srcset.split(',').map((candidato) => candidato.trim().split(/\s+/)[0]));
+  }
+  const ogImage = html.match(/property="og:image"\s+content="([^"]+)"/)?.[1];
+  if (ogImage && !/^https?:/.test(ogImage)) rutas.push(ogImage);
+  for (const ruta of rutas) {
     if (ruta.startsWith('//') || ruta.startsWith('mailto')) continue;
     if (!existeExacto(join('.', ruta))) fallo(pagina, `recurso no encontrado (revisa mayúsculas): ${ruta}`);
   }

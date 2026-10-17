@@ -12,6 +12,7 @@
     "check:rubrica": "node scripts/check-rubrica.js",
     "check:rubrica:final": "node scripts/check-rubrica.js --final",
     "test": "node --test \"tests/**/*.test.js\"",
+    "imagenes": "node scripts/optimizar-imagenes.js",
     "validate": "npm run lint && npm run check:rubrica && npm test",
     "prepare": "husky"
   },
