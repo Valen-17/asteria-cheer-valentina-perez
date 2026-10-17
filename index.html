@@ -55,16 +55,16 @@
   </header>
 
   <main id="contenido">
-    <!-- Encabezado de la página -->
+    <!-- 1. Portada: tipografía grande, logo y cuenta regresiva flotante -->
     <section class="hero hero-portada" aria-labelledby="titulo-pagina">
-      <div class="container">
+      <div class="container position-relative">
         <div class="row align-items-center g-4">
           <div class="col-lg-6 order-2 order-lg-1">
-            <p class="etiqueta">Club de porrismo · Medellín</p>
-            <h1 id="titulo-pagina">Asteria Cheer</h1>
-            <p class="lead">Cada sueño es una estrella que nos impulsa a avanzar. Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel.</p>
+            <p class="etiqueta">Asteria Cheer · Club de porrismo en Medellín</p>
+            <h1 id="titulo-pagina" class="titulo-gigante">Cada sueño es una <span class="texto-estrella">estrella</span></h1>
+            <p class="lead">Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel. Entrena con nosotros desde los 5 años.</p>
             <div class="d-flex flex-wrap gap-2 mt-4">
-              <a class="btn btn-dorado btn-lg" href="contacto.html">Inscríbete</a>
+              <a class="btn btn-dorado btn-lg" href="contacto.html">Agenda tu clase de prueba</a>
               <a class="btn btn-contorno btn-lg" href="tabla.html">Ver equipos</a>
             </div>
           </div>
@@ -77,28 +77,201 @@
             </picture>
           </div>
         </div>
+
+        <!-- Tarjeta flotante: próxima competencia con cuenta regresiva -->
+        <aside class="tarjeta-competencia" aria-labelledby="titulo-competencia" data-cuenta-regresiva data-fecha="2026-11-14T09:00:00-05:00">
+          <p class="etiqueta mb-1">Próxima competencia</p>
+          <h2 id="titulo-competencia" class="h5">Festival Estelar de Porrismo</h2>
+          <p class="mb-2"><i class="bi bi-calendar-event" aria-hidden="true"></i> 14 de noviembre de 2026 · Medellín</p>
+          <dl class="cuenta-regresiva">
+            <div><dt>Días</dt><dd data-unidad="dias">--</dd></div>
+            <div><dt>Horas</dt><dd data-unidad="horas">--</dd></div>
+            <div><dt>Min</dt><dd data-unidad="minutos">--</dd></div>
+            <div><dt>Seg</dt><dd data-unidad="segundos">--</dd></div>
+          </dl>
+          <p class="mb-0 mt-2" data-mensaje-final hidden>¡Es hoy! Gracias por acompañarnos.</p>
+        </aside>
       </div>
     </section>
 
-    <!-- Categorías del club -->
-    <section class="seccion" aria-labelledby="titulo-categorias">
+    <!-- 2. Cifras del club -->
+    <section class="franja-cifras" aria-label="El club en cifras">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-8">
-            <h2 id="titulo-categorias">Nuestras categorías</h2>
-            <p>Contenido en construcción.</p>
+        <ul class="cifras">
+          <li><strong>4</strong> categorías</li>
+          <li><strong>60+</strong> deportistas</li>
+          <li><strong>12</strong> podios</li>
+          <li><strong>4.2</strong> nivel máximo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Pilares del club -->
+    <section class="seccion" aria-labelledby="titulo-pilares">
+      <div class="container">
+        <p class="sobretitulo">/ Nuestra esencia /</p>
+        <h2 id="titulo-pilares">Mucho más que pompones</h2>
+        <ul class="pilares">
+          <li><i class="bi bi-lightning-charge" aria-hidden="true"></i><h3 class="h6">Fuerza</h3><p>Acondicionamiento para bases, flyers y backspots.</p></li>
+          <li><i class="bi bi-bullseye" aria-hidden="true"></i><h3 class="h6">Técnica</h3><p>Progresión segura de stunts, tumbling y pirámides.</p></li>
+          <li><i class="bi bi-shield-check" aria-hidden="true"></i><h3 class="h6">Seguridad</h3><p>Spotters, colchonetas y entrenadores certificados.</p></li>
+          <li><i class="bi bi-people" aria-hidden="true"></i><h3 class="h6">Equipo</h3><p>Aquí nadie vuela sin su equipo: la confianza es la base.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Categorías (cards de Bootstrap) -->
+    <!-- PENDIENTE: confirmar edades y niveles de Mini, Junior y Senior -->
+    <section class="seccion fondo-suave" aria-labelledby="titulo-categorias">
+      <div class="container">
+        <p class="sobretitulo">/ Categorías /</p>
+        <h2 id="titulo-categorias">Encuentra tu equipo</h2>
+        <p class="mb-4">Entrenamos por edades y niveles para que cada deportista avance a su ritmo.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <article class="card h-100">
+              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Mini"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Mini</span></div>
+              <div class="card-body">
+                <h3 class="card-title h5">Mini</h3>
+                <ul class="etiquetas"><li>5 a 8 años</li><li>Nivel 1</li></ul>
+                <p class="card-text">Primeros saltos, coordinación y mucha diversión en un ambiente seguro.</p>
+              </div>
+            </article>
           </div>
-          <aside class="col-lg-4" aria-labelledby="titulo-proxima">
-            <div class="panel-lateral">
-              <h2 id="titulo-proxima" class="h5">Próxima competencia</h2>
-              <p class="mb-0">Contenido en construcción.</p>
-            </div>
-          </aside>
+          <div class="col">
+            <article class="card h-100">
+              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Junior"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Junior</span></div>
+              <div class="card-body">
+                <h3 class="card-title h5">Junior</h3>
+                <ul class="etiquetas"><li>9 a 14 años</li><li>Nivel 1-2</li></ul>
+                <p class="card-text">Primeros stunts y pirámides, técnica de tumbling y trabajo en equipo.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100">
+              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Senior"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Senior</span></div>
+              <div class="card-body">
+                <h3 class="card-title h5">Senior</h3>
+                <ul class="etiquetas"><li>13 a 18 años</li><li>Nivel 2-3</li></ul>
+                <p class="card-text">Rutinas de competencia completas con stunts, pirámides y baile.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card h-100">
+              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Open"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Open</span></div>
+              <div class="card-body">
+                <h3 class="card-title h5">Open</h3>
+                <ul class="etiquetas"><li>16+ años</li><li>Hasta nivel 4.2</li></ul>
+                <p class="card-text">Nuestro equipo élite: elementos avanzados y competencias nacionales.</p>
+              </div>
+            </article>
+          </div>
         </div>
-        <article class="mt-5">
-          <h2>Por qué entrenar con nosotros</h2>
-          <p>Contenido en construcción.</p>
+      </div>
+    </section>
+
+    <!-- 5. Bloques alternos imagen + texto -->
+    <section class="seccion" aria-labelledby="titulo-club">
+      <div class="container">
+        <p class="sobretitulo">/ El club /</p>
+        <h2 id="titulo-club" class="mb-4">Un lugar para brillar</h2>
+        <article class="card bloque-alterno mb-4">
+          <div class="row g-0 align-items-center">
+            <div class="col-md-6">
+              <div class="espacio-imagen ratio ratio-16x9" role="img" aria-label="Espacio para foto de un entrenamiento"><span><i class="bi bi-image" aria-hidden="true"></i> Foto entrenamiento</span></div>
+            </div>
+            <div class="col-md-6">
+              <div class="card-body p-4 p-lg-5">
+                <h3 class="card-title">Entrenamos con propósito</h3>
+                <p class="card-text">Cada sesión combina acondicionamiento, técnica y montaje de rutina. Nuestros entrenadores acompañan a cada deportista para que progrese con seguridad.</p>
+                <a class="btn btn-outline-primary" href="informacion.html">Conoce el porrismo</a>
+              </div>
+            </div>
+          </div>
         </article>
+        <article class="card bloque-alterno bloque-oscuro">
+          <div class="row g-0 align-items-center flex-md-row-reverse">
+            <div class="col-md-6">
+              <div class="espacio-imagen ratio ratio-16x9" role="img" aria-label="Espacio para foto del equipo en competencia"><span><i class="bi bi-image" aria-hidden="true"></i> Foto competencia</span></div>
+            </div>
+            <div class="col-md-6">
+              <div class="card-body p-4 p-lg-5">
+                <h3 class="card-title">Sube al escenario</h3>
+                <p class="card-text">Competimos en torneos locales y nacionales. Vivir la emoción de escuchar el nombre de tu equipo es algo que no se olvida.</p>
+                <a class="btn btn-dorado" href="galeria.html">Ver galería</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. Cómo empezar en 4 pasos -->
+    <section class="seccion fondo-suave" aria-labelledby="titulo-pasos">
+      <div class="container">
+        <p class="sobretitulo">/ Cómo empezar /</p>
+        <h2 id="titulo-pasos">Tu primer día en 4 pasos</h2>
+        <ol class="pasos">
+          <li><span class="numero" aria-hidden="true">01</span><h3 class="h6">Elige tu categoría</h3><p>Según tu edad y experiencia.</p></li>
+          <li><span class="numero" aria-hidden="true">02</span><h3 class="h6">Agenda tu clase de prueba</h3><p>Es gratis y sin compromiso.</p></li>
+          <li><span class="numero" aria-hidden="true">03</span><h3 class="h6">Evaluación de nivel</h3><p>Te ubicamos en el equipo ideal.</p></li>
+          <li><span class="numero" aria-hidden="true">04</span><h3 class="h6">¡A entrenar!</h3><p>Ya eres parte de la familia Asteria.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. Carrusel de momentos (espacios reservados para fotos) -->
+    <section class="seccion seccion-oscura" aria-labelledby="titulo-momentos">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+          <div>
+            <p class="sobretitulo">/ Momentos Asteria /</p>
+            <h2 id="titulo-momentos" class="mb-0">Así brillamos</h2>
+          </div>
+          <button class="btn btn-contorno btn-sm" type="button" data-pausar-carrusel="carrusel-momentos" aria-pressed="false">
+            <i class="bi bi-pause-fill" aria-hidden="true"></i> <span data-texto>Pausar carrusel</span>
+          </button>
+        </div>
+        <div id="carrusel-momentos" class="carousel slide carrusel-asteria" data-bs-ride="carousel" data-bs-interval="5000">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carrusel-momentos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Momento 1"></button>
+            <button type="button" data-bs-target="#carrusel-momentos" data-bs-slide-to="1" aria-label="Momento 2"></button>
+            <button type="button" data-bs-target="#carrusel-momentos" data-bs-slide-to="2" aria-label="Momento 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="espacio-imagen ratio ratio-21x9" role="img" aria-label="Espacio para foto de una pirámide"><span><i class="bi bi-image" aria-hidden="true"></i> Foto pirámide</span></div>
+              <div class="carousel-caption"><p class="h5">Pirámides que desafían la gravedad</p></div>
+            </div>
+            <div class="carousel-item">
+              <div class="espacio-imagen ratio ratio-21x9" role="img" aria-label="Espacio para foto de un stunt"><span><i class="bi bi-image" aria-hidden="true"></i> Foto stunt</span></div>
+              <div class="carousel-caption"><p class="h5">Flyers que vuelan alto</p></div>
+            </div>
+            <div class="carousel-item">
+              <div class="espacio-imagen ratio ratio-21x9" role="img" aria-label="Espacio para foto del equipo celebrando"><span><i class="bi bi-image" aria-hidden="true"></i> Foto celebración</span></div>
+              <div class="carousel-caption"><p class="h5">Celebramos en equipo cada logro</p></div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-momentos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carrusel-momentos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Llamado a la acción -->
+    <section class="cta-final" aria-labelledby="titulo-cta">
+      <div class="container text-center">
+        <h2 id="titulo-cta" class="titulo-gigante">Únete <span class="texto-estrella">al equipo</span></h2>
+        <p class="lead mx-auto">Tu primera clase es gratis. Ven, prueba y descubre hasta dónde puedes volar.</p>
+        <a class="btn btn-dorado btn-lg" href="contacto.html">Quiero inscribirme</a>
       </div>
     </section>
   </main>
