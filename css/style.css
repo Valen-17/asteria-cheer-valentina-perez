@@ -584,6 +584,7 @@ a {
 
 .carrusel-asteria .carousel-caption p {
   margin: 0;
+  color: var(--color-blanco); /* .h5 de Bootstrap lo pintaba morado sobre fondo oscuro */
 }
 
 /* Llamado final con franjas diagonales */
