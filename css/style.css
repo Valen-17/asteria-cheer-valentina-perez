@@ -742,6 +742,11 @@ a {
   transition: transform 0.5s ease;
 }
 
+/* Fotos con la acción arriba (p. ej. una flyer en el aire): encuadre desde el borde superior */
+.enfoque-arriba img {
+  object-position: center top;
+}
+
 .mosaico figure:hover img {
   transform: scale(1.06);
 }
