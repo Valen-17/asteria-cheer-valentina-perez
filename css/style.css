@@ -604,6 +604,19 @@ a {
   max-width: 34rem;
 }
 
+/* Animadora recortada (PNG sin fondo) en la esquina inferior izquierda del llamado final.
+   En móvil se oculta porque taparía el texto centrado. */
+.animadora-cta {
+  display: none;
+}
+
+.animadora-img {
+  display: block;
+  width: auto;
+  height: 100%;
+  filter: drop-shadow(0 0 1.25rem rgb(0 0 0 / 45%));
+}
+
 /* 6. Galería */
 
 /* Miniaturas del carrusel destacado (son los indicadores de Bootstrap con otro estilo) */
@@ -763,15 +776,21 @@ a {
   color: var(--color-texto);
 }
 
-/* Espacio para el video */
-.espacio-video {
+/* Video de la rutina */
+.video-rutina {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: var(--color-negro);
   border-radius: var(--radio-grande);
-  overflow: hidden;
+  box-shadow: var(--sombra-morada);
 }
 
-.espacio-video .bi-play-circle {
-  font-size: 3.5rem;
-  color: var(--color-dorado-oscuro);
+/* Subtítulos con fondo oscuro para que se lean sobre cualquier escena */
+.video-rutina::cue {
+  background-color: rgb(0 0 0 / 75%);
+  color: var(--color-blanco);
+  font-family: var(--fuente-texto);
 }
 
 /* Texto dentro de los espacios reservados (todas las variantes, de menor a mayor especificidad) */
@@ -952,6 +971,16 @@ a {
 
 /* 9. Responsive (mobile first: los estilos de arriba son para móvil) */
 @media (width >= 992px) {
+  .animadora-cta {
+    position: absolute;
+    top: 1.5rem;
+    bottom: 0;
+    left: max(0rem, calc(50% - 36rem));
+    z-index: 1;
+    display: block;
+    pointer-events: none;
+  }
+
   .carrusel-asteria .carousel-inner .ratio {
     --bs-aspect-ratio: 56.25%; /* 16:9: recorta menos las fotos verticales */
   }

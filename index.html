@@ -61,7 +61,7 @@
       <div class="container position-relative">
         <div class="row align-items-center g-4">
           <div class="col-lg-6 order-2 order-lg-1">
-            <p class="etiqueta">Asteria Cheer · Club de porrismo en Medellín</p>
+            <p class="etiqueta">Asteria Cheer - Club de porrismo en Medellín</p>
             <h1 id="titulo-pagina" class="titulo-gigante">Cada sueño es una <span class="texto-estrella">estrella</span></h1>
             <p class="lead">Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel. Entrena con nosotros desde los 6 años.</p>
             <div class="d-flex flex-wrap gap-2 mt-4">
@@ -83,7 +83,7 @@
         <aside class="tarjeta-competencia" aria-labelledby="titulo-competencia" data-cuenta-regresiva data-fecha="2026-11-14T09:00:00-05:00">
           <p class="etiqueta mb-1">Próxima competencia</p>
           <h2 id="titulo-competencia" class="h5">Festival Estelar de Porrismo</h2>
-          <p class="mb-2"><i class="bi bi-calendar-event" aria-hidden="true"></i> 14 de noviembre de 2026 · Medellín</p>
+          <p class="mb-2"><i class="bi bi-calendar-event" aria-hidden="true"></i> 14 de noviembre de 2026 - Medellín</p>
           <dl class="cuenta-regresiva">
             <div><dt>Días</dt><dd data-unidad="dias">--</dd></div>
             <div><dt>Horas</dt><dd data-unidad="horas">--</dd></div>
@@ -338,10 +338,20 @@
     <!-- 8. Llamado a la acción -->
     <section class="cta-final cielo con-marca-agua" aria-labelledby="titulo-cta">
       <span class="marca-agua" aria-hidden="true">Asteria</span>
+      <!-- Animadora recortada (PNG sin fondo): sale desde el borde inferior izquierdo; solo en escritorio -->
+      <picture class="animadora-cta">
+        <source type="image/avif" srcset="img/animadora-asteria-300.avif 300w, img/animadora-asteria-581.avif 581w" sizes="18rem">
+        <source type="image/webp" srcset="img/animadora-asteria-300.webp 300w, img/animadora-asteria-581.webp 581w" sizes="18rem">
+        <img class="animadora-img" src="img/animadora-asteria-581.webp" alt="Animadora de Asteria Cheer sonriendo con el uniforme de competencia" width="581" height="1327" loading="lazy">
+      </picture>
       <div class="container text-center revelar">
-        <h2 id="titulo-cta" class="titulo-gigante">Únete <span class="texto-estrella">al equipo</span></h2>
-        <p class="lead mx-auto">Tu primera clase es gratis. Ven, prueba y descubre hasta dónde puedes volar.</p>
-        <a class="btn btn-dorado btn-lg" href="contacto.html">Quiero inscribirme</a>
+        <div class="row">
+          <div class="col-lg-8 offset-lg-4 col-xl-10 offset-xl-1">
+            <h2 id="titulo-cta" class="titulo-gigante">Únete <span class="texto-estrella">al equipo</span></h2>
+            <p class="lead mx-auto">Tu primera clase es gratis. Ven, prueba y descubre hasta dónde puedes volar.</p>
+            <a class="btn btn-dorado btn-lg" href="contacto.html">Quiero inscribirme</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
