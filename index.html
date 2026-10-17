@@ -63,7 +63,7 @@
           <div class="col-lg-6 order-2 order-lg-1">
             <p class="etiqueta">Asteria Cheer · Club de porrismo en Medellín</p>
             <h1 id="titulo-pagina" class="titulo-gigante">Cada sueño es una <span class="texto-estrella">estrella</span></h1>
-            <p class="lead">Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel. Entrena con nosotros desde los 5 años.</p>
+            <p class="lead">Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel. Entrena con nosotros desde los 6 años.</p>
             <div class="d-flex flex-wrap gap-2 mt-4">
               <a class="btn btn-dorado btn-lg" href="contacto.html">Agenda tu clase de prueba</a>
               <a class="btn btn-contorno btn-lg" href="tabla.html">Ver equipos</a>
@@ -122,7 +122,7 @@
     </section>
 
     <!-- 4. Categorías (cards de Bootstrap) -->
-    <!-- PENDIENTE: confirmar edades y niveles de Mini, Junior y Senior -->
+    <!-- PENDIENTE: confirmar niveles de Mini, Junior y Senior (edades confirmadas) -->
     <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-categorias">
       <div class="container">
         <p class="sobretitulo">Categorías</p>
@@ -132,10 +132,16 @@
           <div class="col revelar">
             <article class="card h-100">
               <span class="numero-card" aria-hidden="true">01</span>
-              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Mini"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Mini</span></div>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-mini-400.avif 400w, img/categoria-mini-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-mini-400.webp 400w, img/categoria-mini-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-mini-800.webp" alt="Niñas del equipo Mini practicando un stunt en el gimnasio de Asteria Cheer" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
               <div class="card-body">
                 <h3 class="card-title h5">Mini</h3>
-                <ul class="etiquetas"><li>5 a 8 años</li><li>Nivel 1</li></ul>
+                <ul class="etiquetas"><li>6 a 10 años</li><li>Nivel 1</li></ul>
                 <p class="card-text">Primeros saltos, coordinación y mucha diversión en un ambiente seguro.</p>
               </div>
             </article>
@@ -143,10 +149,16 @@
           <div class="col revelar">
             <article class="card h-100">
               <span class="numero-card" aria-hidden="true">02</span>
-              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Junior"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Junior</span></div>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-junior-400.avif 400w, img/categoria-junior-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-junior-400.webp 400w, img/categoria-junior-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-junior-800.webp" alt="Equipo Junior entrenando una extensión en el gimnasio junto al letrero Entrenamientos Junior" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
               <div class="card-body">
                 <h3 class="card-title h5">Junior</h3>
-                <ul class="etiquetas"><li>9 a 14 años</li><li>Nivel 1-2</li></ul>
+                <ul class="etiquetas"><li>11 a 14 años</li><li>Nivel 1-2</li></ul>
                 <p class="card-text">Primeros stunts y pirámides, técnica de tumbling y trabajo en equipo.</p>
               </div>
             </article>
@@ -154,10 +166,16 @@
           <div class="col revelar">
             <article class="card h-100">
               <span class="numero-card" aria-hidden="true">03</span>
-              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Senior"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Senior</span></div>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-senior-400.avif 400w, img/categoria-senior-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-senior-400.webp 400w, img/categoria-senior-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-senior-800.webp" alt="Equipo Senior entrenando stunts y tumbling en el gimnasio de Asteria Cheer" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
               <div class="card-body">
                 <h3 class="card-title h5">Senior</h3>
-                <ul class="etiquetas"><li>13 a 18 años</li><li>Nivel 2-3</li></ul>
+                <ul class="etiquetas"><li>15 a 18 años</li><li>Nivel 2-3</li></ul>
                 <p class="card-text">Rutinas de competencia completas con stunts, pirámides y baile.</p>
               </div>
             </article>
@@ -165,10 +183,16 @@
           <div class="col revelar">
             <article class="card h-100">
               <span class="numero-card" aria-hidden="true">04</span>
-              <div class="espacio-imagen ratio ratio-4x3" role="img" aria-label="Espacio para foto del equipo Open"><span><i class="bi bi-image" aria-hidden="true"></i> Foto equipo Open</span></div>
+              <div class="ratio ratio-4x3 foto-cubre card-img-top overflow-hidden">
+                <picture>
+                  <source type="image/avif" srcset="img/categoria-open-400.avif 400w, img/categoria-open-800.avif 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <source type="image/webp" srcset="img/categoria-open-400.webp 400w, img/categoria-open-800.webp 800w" sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw">
+                  <img src="img/categoria-open-800.webp" alt="Equipo Open 4.2 levantando una pirámide en el gimnasio de Asteria Cheer" width="800" height="533" loading="lazy">
+                </picture>
+              </div>
               <div class="card-body">
                 <h3 class="card-title h5">Open</h3>
-                <ul class="etiquetas"><li>16+ años</li><li>Hasta nivel 4.2</li></ul>
+                <ul class="etiquetas"><li>18+ años</li><li>Hasta nivel 4.2</li></ul>
                 <p class="card-text">Nuestro equipo élite: elementos avanzados y competencias nacionales.</p>
               </div>
             </article>

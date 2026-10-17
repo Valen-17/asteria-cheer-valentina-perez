@@ -80,4 +80,4 @@ Abrir el sitio con la extensión Live Server de VS Code (los módulos de JavaScr
 - Uniforme 2026 (frente, espalda y moño en la galería): diseño conceptual generado con IA.
 - Fotos de la galería, el carrusel y la portada (pirámide en escenario, camino al escenario, equipo unido, stunt en entrenamiento, estiramiento y concentración): recortes del collage "Juntas brillamos", generado con IA.
 
-_Las demás imágenes se listarán aquí con su fuente (Unsplash, Pexels o generadas con IA)._
+- Fotos de categorías (Mini, Junior, Senior, Open), podios, pirámide en el gimnasio, moño y uniforme completo: generadas con IA para este proyecto.
