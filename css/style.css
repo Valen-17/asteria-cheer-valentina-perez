@@ -42,6 +42,8 @@
   --bs-primary-rgb: 76, 0, 125;
   --bs-link-color: var(--color-morado);
   --bs-link-hover-color: var(--color-morado-claro);
+  --bs-link-color-rgb: 76, 0, 125; /* Bootstrap 5.3 pinta los enlaces con estas variables RGB */
+  --bs-link-hover-color-rgb: 122, 16, 192;
   --bs-body-font-family: var(--fuente-texto);
   --bs-body-color: var(--color-texto);
   --bs-body-bg: var(--color-fondo);
@@ -531,6 +533,93 @@ a {
 
 .datos-sede dd {
   margin-bottom: 0.75rem;
+}
+
+/* Formulario de inscripción */
+.formulario-asteria {
+  --bs-form-valid-color: var(--color-exito);
+  --bs-form-valid-border-color: var(--color-exito);
+  --bs-form-invalid-color: var(--color-error);
+  --bs-form-invalid-border-color: var(--color-error);
+
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background-color: var(--color-blanco);
+  border-top: 4px solid var(--color-dorado);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra);
+}
+
+.formulario-asteria .form-label {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: var(--color-morado);
+}
+
+/* Foco morado en lugar del azul de Bootstrap */
+.formulario-asteria .form-control:focus,
+.formulario-asteria .form-select:focus,
+.formulario-asteria .form-check-input:focus {
+  border-color: var(--color-morado-claro);
+  box-shadow: 0 0 0 0.25rem rgb(122 16 192 / 25%);
+}
+
+.formulario-asteria .form-check-input:checked {
+  background-color: var(--color-morado);
+  border-color: var(--color-morado);
+}
+
+.formulario-asteria .invalid-feedback {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.contador {
+  flex-shrink: 0;
+}
+
+.contador-listo {
+  color: var(--color-exito);
+  font-weight: 700;
+}
+
+/* Mensajes de confirmación y de errores */
+.alerta {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radio);
+}
+
+.alerta > i.bi {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.alerta-exito {
+  color: var(--color-exito);
+  background-color: #e8f5ec;
+  border-left: 4px solid var(--color-exito);
+}
+
+.alerta-errores {
+  display: block;
+  color: var(--color-error);
+  background-color: #fdecea;
+  border-left: 4px solid var(--color-error);
+}
+
+.alerta-errores h3 {
+  color: var(--color-error);
+}
+
+.alerta-errores a {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+.alerta[hidden] {
+  display: none;
 }
 
 /* Franja dorada de cifras */

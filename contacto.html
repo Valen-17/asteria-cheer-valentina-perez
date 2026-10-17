@@ -67,26 +67,110 @@
         </nav>
         <p class="etiqueta">Únete al equipo</p>
         <h1 id="titulo-pagina">Inscripción</h1>
-        <p class="lead">Cuéntanos sobre ti y agenda tu clase de prueba.</p>
+        <p class="lead">Cuéntanos sobre ti y agenda tu clase de prueba gratis.</p>
       </div>
     </section>
 
     <div class="container seccion">
       <div class="row g-4 g-lg-5">
+        <!-- Formulario: la validación vive en js/model, js/view y js/controller (MVC) -->
         <section class="col-lg-8" aria-labelledby="titulo-formulario">
-          <h2 id="titulo-formulario">Formulario de inscripción</h2>
-          <p>Contenido en construcción.</p>
+          <p class="sobretitulo">/ Inscripción /</p>
+          <h2 id="titulo-formulario">Agenda tu clase de prueba</h2>
+          <p>Completa el formulario y te contactamos en menos de 48 horas. Todos los campos son obligatorios.</p>
+
+          <!-- Confirmación (aparece al enviar sin errores) -->
+          <div class="alerta alerta-exito" role="status" tabindex="-1" data-mensaje-exito hidden>
+            <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+            <p class="mb-0" data-texto></p>
+          </div>
+
+          <form id="form-inscripcion" class="formulario-asteria" action="#" method="post">
+            <!-- Resumen de errores (aparece al enviar con errores) -->
+            <div class="alerta alerta-errores" role="alert" tabindex="-1" data-resumen-errores hidden>
+              <h3 class="h6">Revisa estos campos:</h3>
+              <ul class="mb-0"></ul>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="campo-nombre">Nombre completo</label>
+                <input class="form-control" id="campo-nombre" name="nombre" type="text" autocomplete="name" required minlength="3" placeholder="Valentina Pérez" aria-describedby="error-nombre">
+                <p class="invalid-feedback" id="error-nombre"></p>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="campo-email">Correo electrónico</label>
+                <input class="form-control" id="campo-email" name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com" aria-describedby="error-email">
+                <p class="invalid-feedback" id="error-email"></p>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="campo-categoria">Categoría que te interesa</label>
+                <select class="form-select" id="campo-categoria" name="categoria" required aria-describedby="ayuda-categoria error-categoria">
+                  <option value="">Selecciona una opción</option>
+                  <option value="mini">Mini (6 a 10 años)</option>
+                  <option value="junior">Junior (11 a 14 años)</option>
+                  <option value="senior">Senior (15 a 18 años)</option>
+                  <option value="open">Open 4.2 (18+ años)</option>
+                  <option value="evaluacion">Aún no sé, quiero una evaluación</option>
+                </select>
+                <p class="form-text" id="ayuda-categoria">¿No sabes cuál elegir? Revisa los <a href="tabla.html">equipos y horarios</a> o pide una evaluación.</p>
+                <p class="invalid-feedback" id="error-categoria"></p>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="campo-mensaje">Mensaje</label>
+                <textarea class="form-control" id="campo-mensaje" name="mensaje" rows="5" required minlength="20" placeholder="Cuéntanos tu edad, si ya has practicado porrismo o gimnasia y qué día te gustaría venir." aria-describedby="ayuda-mensaje error-mensaje"></textarea>
+                <div class="d-flex justify-content-between gap-3">
+                  <p class="form-text" id="ayuda-mensaje">Mínimo 20 caracteres.</p>
+                  <p class="form-text contador" data-contador aria-hidden="true">0 de 20 caracteres mínimos</p>
+                </div>
+                <p class="invalid-feedback" id="error-mensaje"></p>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="campo-autorizacion" name="autorizacion" required aria-describedby="error-autorizacion">
+                  <label class="form-check-label" for="campo-autorizacion">Autorizo el tratamiento de mis datos personales para que Asteria Cheer me contacte sobre la inscripción.</label>
+                  <p class="invalid-feedback" id="error-autorizacion"></p>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <button class="btn btn-dorado btn-lg" type="submit">Enviar solicitud <i class="bi bi-send" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </form>
         </section>
+
+        <!-- Datos de contacto -->
         <aside class="col-lg-4" aria-labelledby="titulo-datos">
           <div class="panel-lateral">
             <h2 id="titulo-datos" class="h5">Datos de contacto</h2>
-            <p class="mb-0">Contenido en construcción.</p>
+            <dl class="datos-sede mb-0">
+              <dt><i class="bi bi-building" aria-hidden="true"></i> Sede</dt>
+              <dd>Coliseo de Gimnasia del Estadio Atanasio Girardot, Medellín</dd>
+              <dt><i class="bi bi-clock" aria-hidden="true"></i> Entrenamientos</dt>
+              <dd>Lunes a viernes de 3:00 a 9:30 p. m. y sábados de 7:00 a. m. a 12:00 m.</dd>
+              <dt><i class="bi bi-chat-heart" aria-hidden="true"></i> Respuesta</dt>
+              <dd>Te contactamos en menos de 48 horas.</dd>
+            </dl>
           </div>
         </aside>
       </div>
-      <article class="mt-5">
-        <h2>Tu primera clase</h2>
-        <p>Contenido en construcción.</p>
+
+      <!-- Qué llevar a la primera clase -->
+      <article class="mt-5" aria-labelledby="titulo-primera-clase">
+        <p class="sobretitulo">/ Tu primera clase /</p>
+        <h2 id="titulo-primera-clase">Qué llevar el primer día</h2>
+        <p>La clase de prueba dura lo mismo que un entrenamiento normal. Así llegas con todo listo para volar:</p>
+        <ul class="pilares">
+          <li class="pilar revelar"><i class="bi bi-person-arms-up" aria-hidden="true"></i><h3 class="h6">Ropa deportiva</h3><p>Cómoda y ajustada, sin cremalleras ni botones que puedan engancharse en un stunt.</p></li>
+          <li class="pilar revelar"><i class="bi bi-stars" aria-hidden="true"></i><h3 class="h6">Tenis y cabello recogido</h3><p>Tenis de suela blanda y el cabello bien sujeto. Sin aretes, anillos ni relojes.</p></li>
+          <li class="pilar revelar"><i class="bi bi-droplet" aria-hidden="true"></i><h3 class="h6">Hidratación</h3><p>Una botella de agua marcada con tu nombre y algo ligero para comer después.</p></li>
+          <li class="pilar revelar"><i class="bi bi-alarm" aria-hidden="true"></i><h3 class="h6">Llega 15 minutos antes</h3><p>Así conoces a tu entrenador o entrenadora y haces el calentamiento completo.</p></li>
+        </ul>
       </article>
     </div>
   </main>
