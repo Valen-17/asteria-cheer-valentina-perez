@@ -622,6 +622,158 @@ a {
   display: none;
 }
 
+/* Página "El porrismo" */
+.bloque-info + .bloque-info {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgb(76 0 125 / 15%);
+}
+
+.foto-info {
+  margin: 1.5rem 0;
+}
+
+.foto-info .ratio {
+  overflow: hidden;
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra-morada);
+}
+
+.foto-info figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+/* Dato destacado (becas) */
+.dato-destacado {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  color: var(--color-morado);
+  background-color: var(--color-morado-suave);
+  border-radius: var(--radio);
+}
+
+.dato-destacado > i.bi {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-dorado-oscuro);
+}
+
+/* Escala visual de niveles del 1 al 7 */
+.escala-niveles {
+  margin: 1.5rem 0;
+}
+
+.escala-niveles ol {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end; /* las barras suben como una escalera */
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.escala-niveles li {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.4rem;
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  color: var(--color-morado);
+  background-color: var(--color-morado-suave);
+  border-radius: 0.4rem 0.4rem 0 0;
+}
+
+/* Cada nivel es más alto que el anterior: dificultad progresiva */
+.escala-niveles .n1 {
+  height: 2.5rem;
+}
+
+.escala-niveles .n2 {
+  height: 3.25rem;
+}
+
+.escala-niveles .n3 {
+  height: 4rem;
+}
+
+.escala-niveles .n4 {
+  height: 4.75rem;
+}
+
+.escala-niveles .n5 {
+  height: 5.5rem;
+}
+
+.escala-niveles .n6 {
+  height: 6.25rem;
+}
+
+.escala-niveles .n7 {
+  height: 7rem;
+}
+
+.escala-niveles .activo {
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+}
+
+.escala-niveles figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.escala-niveles .muestra {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-dorado);
+  border-radius: 0.2rem;
+}
+
+/* Lista con estrellas doradas */
+.lista-estrella {
+  padding: 0;
+  list-style: none;
+}
+
+.lista-estrella li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 1.75rem;
+}
+
+.lista-estrella li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--color-dorado-oscuro);
+}
+
+/* Glosario (lista de definiciones) */
+.glosario dt {
+  margin-top: 1rem;
+  font-family: var(--fuente-titulos);
+  color: var(--color-morado);
+}
+
+.glosario dt:first-child {
+  margin-top: 0;
+}
+
+.glosario dd {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
 /* Franja dorada de cifras */
 .franja-cifras {
   background-color: var(--color-dorado);
@@ -1157,6 +1309,12 @@ a {
 
 /* 9. Responsive (mobile first: los estilos de arriba son para móvil) */
 @media (width >= 992px) {
+  /* El glosario acompaña la lectura mientras se baja por la página */
+  .glosario {
+    position: sticky;
+    top: 6rem;
+  }
+
   .animadora-cta {
     position: absolute;
     top: 1.5rem;
