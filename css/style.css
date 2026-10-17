@@ -130,6 +130,12 @@ a {
   letter-spacing: -0.01em;
 }
 
+/* Lema completo en la portada: más pequeño que un título gigante para que quepa entero */
+.titulo-lema {
+  font-size: clamp(2rem, 4vw + 0.6rem, 3.5rem);
+  line-height: 1.05;
+}
+
 /* Texto dorado; si el navegador lo permite, con brillo metálico */
 .texto-estrella {
   color: var(--color-dorado);
@@ -908,6 +914,12 @@ a {
   border-radius: var(--radio-grande);
 }
 
+/* Carruseles más compactos en pantallas grandes (el encabezado usa el mismo ancho) */
+.carrusel-ancho {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
 /* Carrusel 4:3 en móvil y 16:9 en escritorio */
 .carrusel-asteria .carousel-inner .ratio {
   --bs-aspect-ratio: 75%;
@@ -1048,6 +1060,128 @@ a {
 
 .mosaico .alta {
   grid-row: span 2;
+}
+
+/* Fotos del mosaico que se abren en el visor */
+.abrir-foto {
+  display: block;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.abrir-foto:focus-visible {
+  outline-offset: -4px;
+}
+
+.icono-ampliar {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--transicion), transform var(--transicion);
+}
+
+.abrir-foto:hover .icono-ampliar,
+.abrir-foto:focus-visible .icono-ampliar {
+  opacity: 1;
+  transform: none;
+}
+
+/* Visor de fotos (modal de Bootstrap a pantalla completa) */
+.visor .modal-content {
+  color: var(--color-blanco);
+  background-color: rgb(10 8 14 / 98%);
+  border: 0;
+}
+
+.visor .modal-header {
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
+}
+
+.visor .modal-title {
+  font-family: var(--fuente-titulos);
+  color: var(--color-blanco);
+}
+
+.visor-contador {
+  font-size: 0.9rem;
+  color: var(--color-dorado-claro);
+}
+
+.visor .modal-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.visor-lienzo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.visor-imagen {
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+  border-radius: var(--radio);
+  box-shadow: 0 0 3rem rgb(122 16 192 / 35%);
+}
+
+.visor-flecha {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  color: var(--color-blanco);
+  background-color: rgb(0 0 0 / 55%);
+  border: 1px solid rgb(212 175 55 / 60%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.visor-flecha:hover,
+.visor-flecha:focus-visible {
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+}
+
+.visor-flecha[hidden] {
+  display: none;
+}
+
+.visor-anterior {
+  left: 0.75rem;
+}
+
+.visor-siguiente {
+  right: 0.75rem;
+}
+
+.visor-ayuda {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--color-texto-suave);
 }
 
 /* Galería del uniforme: CSS Grid, 2 columnas en móvil y 4 en escritorio */
@@ -1309,6 +1443,10 @@ a {
 
 /* 9. Responsive (mobile first: los estilos de arriba son para móvil) */
 @media (width >= 992px) {
+  .visor .modal-body {
+    padding: 1rem 5rem;
+  }
+
   /* El glosario acompaña la lectura mientras se baja por la página */
   .glosario {
     position: sticky;

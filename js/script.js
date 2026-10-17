@@ -28,6 +28,11 @@ if (galeria) {
   cargar('./controller/galeriaController.js', ({ iniciarGaleria }) => iniciarGaleria(galeria));
 }
 
+// Visor de fotos en grande (galería)
+if (galeria && document.getElementById('visor-fotos') && window.bootstrap) {
+  cargar('./controller/visorController.js', ({ iniciarVisor }) => iniciarVisor(galeria, window.bootstrap.Modal));
+}
+
 // Aparición suave de secciones al hacer scroll (todas las páginas)
 const revelables = document.querySelectorAll('.revelar');
 if (revelables.length) {
