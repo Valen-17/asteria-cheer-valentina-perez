@@ -32,7 +32,6 @@
   /* Espaciado, bordes y sombras */
   --espacio-seccion: clamp(3rem, 6vw, 5rem);
   --corte-diagonal: 3vw;
-  --franja-uniforme: repeating-linear-gradient(115deg, var(--color-dorado) 0 14px, var(--color-morado) 14px 28px, var(--color-negro) 28px 32px);
   --radio: 0.75rem;
   --radio-grande: 1.25rem;
   --sombra: 0 0.35rem 1.25rem rgb(18 18 18 / 8%);
@@ -166,8 +165,7 @@ a {
 .navbar-asteria {
   background-color: rgb(18 18 18 / 82%);
   backdrop-filter: blur(16px) saturate(150%);
-  border-bottom: 5px solid;
-  border-image: var(--franja-uniforme) 1;
+  border-bottom: 3px solid var(--color-dorado);
   transition: background-color var(--transicion-fluida), box-shadow var(--transicion-fluida);
 }
 
@@ -671,8 +669,7 @@ a {
 }
 
 .modal-asteria .modal-header {
-  border-bottom: 5px solid;
-  border-image: var(--franja-uniforme) 1;
+  border-bottom: 3px solid var(--color-dorado);
 }
 
 .modal-asteria .modal-title {
@@ -1548,8 +1545,7 @@ a {
 .pie {
   background-color: var(--color-negro);
   color: var(--color-blanco);
-  border-top: 5px solid;
-  border-image: var(--franja-uniforme) 1;
+  border-top: 3px solid var(--color-dorado);
 }
 
 .pie h2 {
