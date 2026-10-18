@@ -17,10 +17,10 @@
   <meta property="og:image:alt" content="Logo de Asteria Cheer">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <!-- Tipografías: Montserrat (títulos) y Nunito (texto) -->
+  <!-- Tipografías: Barlow Condensed (títulos grandes), Montserrat (interfaz) y Nunito (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Nunito:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;1,700;1,800&amp;family=Montserrat:wght@600;700;800&amp;family=Nunito:wght@400;700&amp;display=swap">
   <!-- Bootstrap 5.3 e íconos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
@@ -57,19 +57,18 @@
   <main id="contenido">
     <!-- 1. Portada: tipografía grande, logo y cuenta regresiva flotante -->
     <section class="hero hero-portada cielo" aria-labelledby="titulo-pagina">
-      <span class="estrella-fugaz" aria-hidden="true"></span>
       <div class="container position-relative">
         <div class="row align-items-center g-4">
           <div class="col-lg-6 order-2 order-lg-1">
             <p class="etiqueta">Asteria Cheer - Club de porrismo en Medellín</p>
             <h1 id="titulo-pagina" class="titulo-gigante titulo-lema">Cada sueño es una <span class="texto-estrella">estrella</span> que nos impulsa a avanzar</h1>
-            <p class="lead">Fuerza, técnica y espíritu de equipo para llevar tu porrismo al siguiente nivel. Entrena con nosotros desde los 6 años.</p>
+            <p class="lead">Entrenamos en el Coliseo de Gimnasia del Atanasio Girardot: cuatro equipos, desde Mini (6 años) hasta Open 4.2.</p>
             <div class="d-flex flex-wrap gap-2 mt-4">
               <a class="btn btn-dorado btn-lg" href="contacto.html">Agenda tu clase de prueba</a>
               <a class="btn btn-contorno btn-lg" href="tabla.html">Ver equipos</a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 text-center halo">
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
             <!-- AVIF para navegadores modernos, WebP como respaldo; el navegador elige el ancho según la pantalla -->
             <picture>
               <source type="image/avif" srcset="img/logo-asteria-320.avif 320w, img/logo-asteria-480.avif 480w, img/logo-asteria-640.avif 640w" sizes="(min-width: 992px) 26rem, 15rem">
@@ -99,32 +98,33 @@
     <section class="franja-cifras" aria-label="El club en cifras">
       <div class="container">
         <ul class="cifras">
-          <li><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i><strong>4</strong> categorías</li>
-          <li><i class="bi bi-people" aria-hidden="true"></i><strong>60<span class="sufijo">+</span></strong> deportistas</li>
-          <li><i class="bi bi-trophy" aria-hidden="true"></i><strong>12</strong> podios</li>
-          <li><i class="bi bi-bar-chart-steps" aria-hidden="true"></i><strong>4.2</strong> nivel máximo</li>
+          <li><strong>4</strong> categorías</li>
+          <li><strong>60<span class="sufijo">+</span></strong> deportistas</li>
+          <li><strong>12</strong> podios</li>
+          <li><strong>4.2</strong> nivel máximo</li>
         </ul>
       </div>
     </section>
 
-    <!-- 3. Pilares del club -->
+    <!-- 3. Pilares del club: en porrismo todo se cuenta en tiempos de 1 a 8 -->
     <section class="seccion" aria-labelledby="titulo-pilares">
       <div class="container">
-        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Nuestra esencia</p>
-        <h2 id="titulo-pilares">Mucho más que pompones</h2>
-        <ul class="pilares">
-          <li class="pilar revelar"><i class="bi bi-lightning-charge" aria-hidden="true"></i><h3 class="h6">Fuerza</h3><p>Acondicionamiento para bases, flyers y backspots.</p></li>
-          <li class="pilar revelar"><i class="bi bi-bullseye" aria-hidden="true"></i><h3 class="h6">Técnica</h3><p>Progresión segura de stunts, tumbling y pirámides.</p></li>
-          <li class="pilar revelar"><i class="bi bi-shield-check" aria-hidden="true"></i><h3 class="h6">Seguridad</h3><p>Spotters, colchonetas y entrenadores certificados.</p></li>
-          <li class="pilar revelar"><i class="bi bi-people" aria-hidden="true"></i><h3 class="h6">Equipo</h3><p>Aquí nadie vuela sin su equipo: la confianza es la base.</p></li>
-        </ul>
+        <p class="sobretitulo">Nuestra esencia</p>
+        <h2 id="titulo-pilares">Todo se cuenta en ochos</h2>
+        <p class="mb-4">En una rutina cada movimiento cae en un tiempo, del 1 al 8. Así se cuenta lo que nos define:</p>
+        <ol class="conteo">
+          <li class="revelar"><span class="tiempos" aria-hidden="true">1·2</span><h3 class="h5">Fuerza</h3><p>Acondicionamiento para bases, flyers y backspots.</p></li>
+          <li class="revelar"><span class="tiempos" aria-hidden="true">3·4</span><h3 class="h5">Técnica</h3><p>Progresión segura de stunts, tumbling y pirámides.</p></li>
+          <li class="revelar"><span class="tiempos" aria-hidden="true">5·6</span><h3 class="h5">Seguridad</h3><p>Spotters, colchonetas y entrenadores certificados.</p></li>
+          <li class="revelar"><span class="tiempos" aria-hidden="true">7·8</span><h3 class="h5">Equipo</h3><p>Aquí nadie vuela sin su equipo: la confianza es la base.</p></li>
+        </ol>
       </div>
     </section>
 
     <!-- 4. Categorías (cards de Bootstrap) -->
     <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-categorias">
       <div class="container">
-        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Categorías</p>
+        <p class="sobretitulo">Categorías</p>
         <h2 id="titulo-categorias">Encuentra tu equipo</h2>
         <p class="mb-4">Entrenamos por edades y niveles para que cada deportista avance a su ritmo.</p>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
@@ -207,8 +207,8 @@
     <!-- 5. Bloques alternos imagen + texto -->
     <section class="seccion" aria-labelledby="titulo-club">
       <div class="container">
-        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> El club</p>
-        <h2 id="titulo-club" class="mb-4">Un lugar para brillar</h2>
+        <p class="sobretitulo">El club</p>
+        <h2 id="titulo-club" class="mb-4">Del gimnasio al escenario</h2>
         <article class="revelar card bloque-alterno mb-4">
           <div class="row g-0 align-items-center">
             <div class="col-md-6">
@@ -252,27 +252,27 @@
       </div>
     </section>
 
-    <!-- 6. Cómo empezar en 4 pasos -->
+    <!-- 6. Cómo empezar: los pasos van sobre un tapete de competencia, marcados con X de cinta -->
     <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-pasos">
       <div class="container">
-        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Cómo empezar</p>
-        <h2 id="titulo-pasos">Tu primer día en 4 pasos</h2>
-        <ol class="pasos">
-          <li class="revelar"><span class="numero" aria-hidden="true">01</span><h3 class="h6">Elige tu categoría</h3><p>Según tu edad y experiencia.</p></li>
-          <li class="revelar"><span class="numero" aria-hidden="true">02</span><h3 class="h6">Agenda tu clase de prueba</h3><p>Es gratis y sin compromiso.</p></li>
-          <li class="revelar"><span class="numero" aria-hidden="true">03</span><h3 class="h6">Evaluación de nivel</h3><p>Te ubicamos en el equipo ideal.</p></li>
-          <li class="revelar"><span class="numero" aria-hidden="true">04</span><h3 class="h6">¡A entrenar!</h3><p>Ya eres parte de la familia Asteria.</p></li>
+        <p class="sobretitulo">Cómo empezar</p>
+        <h2 id="titulo-pasos">Tu primer día en el tapete</h2>
+        <ol class="tapete revelar">
+          <li><span class="marca-x" aria-hidden="true"></span><h3 class="h6">Elige tu categoría</h3><p>Según tu edad y experiencia.</p></li>
+          <li><span class="marca-x" aria-hidden="true"></span><h3 class="h6">Agenda tu clase de prueba</h3><p>Es gratis y sin compromiso.</p></li>
+          <li><span class="marca-x" aria-hidden="true"></span><h3 class="h6">Evaluación de nivel</h3><p>Te ubicamos en el equipo ideal.</p></li>
+          <li><span class="marca-x" aria-hidden="true"></span><h3 class="h6">¡A entrenar!</h3><p>Ya eres parte de la familia Asteria.</p></li>
         </ol>
       </div>
     </section>
 
     <!-- 7. Carrusel de momentos (espacios reservados para fotos) -->
-    <section class="seccion seccion-oscura cielo borde-diagonal" aria-labelledby="titulo-momentos">
+    <section class="seccion seccion-oscura borde-diagonal" aria-labelledby="titulo-momentos">
       <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4 carrusel-ancho">
           <div>
-            <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Momentos Asteria</p>
-            <h2 id="titulo-momentos" class="mb-0">Así brillamos</h2>
+            <p class="sobretitulo">Momentos Asteria</p>
+            <h2 id="titulo-momentos" class="mb-0">En la pista</h2>
           </div>
           <button class="btn btn-contorno btn-sm" type="button" data-pausar-carrusel="carrusel-momentos" aria-pressed="false">
             <i class="bi bi-pause-fill" aria-hidden="true"></i> <span data-texto>Pausar carrusel</span>
@@ -340,7 +340,7 @@
     </section>
 
     <!-- 8. Llamado a la acción -->
-    <section class="cta-final cielo con-marca-agua" aria-labelledby="titulo-cta">
+    <section class="cta-final con-marca-agua" aria-labelledby="titulo-cta">
       <span class="marca-agua" aria-hidden="true">Asteria</span>
       <!-- Animadora recortada (PNG sin fondo): sale desde el borde inferior izquierdo; solo en escritorio -->
       <picture class="animadora-cta">

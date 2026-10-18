@@ -25,12 +25,14 @@
   --color-exito: #1b7a3d;
 
   /* Tipografía */
-  --fuente-titulos: "Montserrat", system-ui, sans-serif;
+  --fuente-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif; /* títulos grandes, estilo camiseta */
+  --fuente-titulos: "Montserrat", system-ui, sans-serif; /* interfaz: menú, etiquetas, botones */
   --fuente-texto: "Nunito", system-ui, sans-serif;
 
   /* Espaciado, bordes y sombras */
   --espacio-seccion: clamp(3rem, 6vw, 5rem);
   --corte-diagonal: 3vw;
+  --franja-uniforme: repeating-linear-gradient(115deg, var(--color-dorado) 0 14px, var(--color-morado) 14px 28px, var(--color-negro) 28px 32px);
   --radio: 0.75rem;
   --radio-grande: 1.25rem;
   --sombra: 0 0.35rem 1.25rem rgb(18 18 18 / 8%);
@@ -66,14 +68,25 @@ main {
   flex: 1;
 }
 
-h1,
-h2,
 h3,
 h4,
 .marca {
   font-family: var(--fuente-titulos);
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+h1,
+h2 {
+  font-family: var(--fuente-display);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+h2 {
+  font-size: clamp(2.1rem, 2.5vw + 1.2rem, 3rem);
 }
 
 a {
@@ -115,54 +128,46 @@ a {
   color: var(--color-dorado-oscuro);
 }
 
-/* Sobretítulo de sección: "✦ Categorías" */
+/* Sobretítulo: etiqueta inclinada, como el corte diagonal del uniforme */
 .sobretitulo {
-  margin-bottom: 0.4rem;
-  color: var(--color-dorado-oscuro);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.2rem 0.9rem;
   font-family: var(--fuente-titulos);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--color-blanco);
+  background-color: var(--color-morado);
+  clip-path: polygon(0.5rem 0, 100% 0, calc(100% - 0.5rem) 100%, 0 100%);
 }
 
-.sobretitulo-estrella {
-  margin-right: 0.15rem;
-  color: var(--color-dorado);
-}
 
 .titulo-gigante {
-  font-size: clamp(2.4rem, 7vw, 4.75rem);
-  line-height: 1;
+  font-size: clamp(2.75rem, 7vw, 5.25rem);
+  line-height: 0.92;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
 }
 
 /* Lema completo en la portada: más pequeño que un título gigante para que quepa entero */
 .titulo-lema {
-  font-size: clamp(2rem, 4vw + 0.6rem, 3.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.5rem, 4.5vw + 0.75rem, 4.25rem);
+  line-height: 0.95;
 }
 
-/* Texto dorado; si el navegador lo permite, con brillo metálico */
+/* Palabra destacada en dorado */
 .texto-estrella {
   color: var(--color-dorado);
 }
 
-@supports (background-clip: text) {
-  .texto-estrella {
-    background: linear-gradient(100deg, var(--color-dorado-claro) 0%, var(--color-dorado) 40%, var(--color-dorado-brillo) 55%, var(--color-dorado) 75%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
 
 /* 3. Navegación: barra de vidrio oscuro que deja ver el contenido al hacer scroll */
 .navbar-asteria {
   background-color: rgb(18 18 18 / 82%);
   backdrop-filter: blur(16px) saturate(150%);
-  border-bottom: 1px solid rgb(212 175 55 / 40%);
-  box-shadow: 0 4px 20px rgb(0 0 0 / 25%);
+  border-bottom: 5px solid;
+  border-image: var(--franja-uniforme) 1;
   transition: background-color var(--transicion-fluida), box-shadow var(--transicion-fluida);
 }
 
@@ -290,31 +295,18 @@ a {
   height: auto;
 }
 
-/* Halo morado detrás del logo */
-.halo {
-  position: relative;
-}
 
-.halo::before {
-  content: "";
-  position: absolute;
-  inset: 10% 15%;
-  z-index: -1;
-  background: radial-gradient(circle, rgb(122 16 192 / 45%) 0%, transparent 70%);
-  filter: blur(20px);
-}
 
-/* Tarjeta flotante tipo vidrio con la cuenta regresiva */
+/* Cuenta regresiva: como el marcador de una competencia */
 .tarjeta-competencia {
   margin-top: 2rem;
   max-width: 24rem;
   padding: 1.25rem 1.5rem;
   color: var(--color-blanco);
-  background-color: rgb(255 255 255 / 8%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgb(212 175 55 / 55%);
-  border-radius: var(--radio-grande);
-  box-shadow: 0 0 2.5rem rgb(122 16 192 / 30%);
+  background-color: #0c0a10;
+  border: 1px solid rgb(212 175 55 / 45%);
+  border-left: 5px solid var(--color-dorado);
+  border-radius: var(--radio);
 }
 
 .tarjeta-competencia h2 {
@@ -339,9 +331,10 @@ a {
 
 .cuenta-regresiva dd {
   margin: 0;
-  font-family: var(--fuente-titulos);
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-family: var(--fuente-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
   color: var(--color-dorado);
   font-variant-numeric: tabular-nums;
 }
@@ -364,18 +357,9 @@ a {
   font-family: var(--fuente-titulos);
   font-weight: 700;
   border: 2px solid var(--color-dorado);
-  box-shadow: 0 0.5rem 1.5rem rgb(212 175 55 / 30%);
-  transition: background-color var(--transicion), transform var(--transicion-fluida), box-shadow var(--transicion-fluida);
+  transition: background-color var(--transicion), transform var(--transicion-fluida);
 }
 
-.btn-dorado::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 55%) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.6s ease;
-}
 
 .btn-dorado:hover,
 .btn-dorado:focus-visible {
@@ -384,9 +368,6 @@ a {
   transform: translateY(-2px);
 }
 
-.btn-dorado:hover::after {
-  transform: translateX(120%);
-}
 
 .btn-contorno {
   color: var(--color-blanco);
@@ -634,6 +615,36 @@ a {
 .formulario-asteria .form-control,
 .formulario-asteria .form-select {
   min-height: 3.1rem;
+}
+
+/* Qué llevar: lista de maleta con casillas */
+.lista-maleta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem 2rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-maleta li {
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.lista-maleta li::before {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid var(--color-morado);
+  border-radius: 0.3rem;
+}
+
+.lista-maleta p {
+  margin: 0;
 }
 
 /* Panel oscuro: qué incluye la clase de prueba */
@@ -891,7 +902,7 @@ a {
   font-size: 0.95rem;
 }
 
-/* Cifras del club: tarjetas oscuras que montan sobre el borde inferior del hero */
+/* Cifras del club: marcador que monta sobre el borde inferior del hero */
 .franja-cifras {
   position: relative;
   z-index: 2;
@@ -901,36 +912,30 @@ a {
 .cifras {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem;
   list-style: none;
   text-align: center;
-}
-
-.cifras li {
-  padding: 1.25rem 1rem;
-  font-weight: 600;
-  color: var(--color-texto-suave);
-  background: linear-gradient(160deg, #1d1726, var(--color-negro));
-  border: 1px solid rgb(212 175 55 / 25%);
-  border-radius: var(--radio-grande);
+  background-color: var(--color-negro);
+  border: 1px solid rgb(212 175 55 / 35%);
+  border-radius: var(--radio);
   box-shadow: var(--sombra-flotante);
 }
 
-.cifras li > i.bi {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-size: 1.35rem;
-  color: var(--color-dorado);
+.cifras li {
+  padding: 1rem 0.75rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
 }
+
 
 .cifras strong {
   display: block;
-  font-family: var(--fuente-titulos);
-  font-size: 2.25rem;
+  font-family: var(--fuente-display);
+  font-size: 3rem;
+  font-style: italic;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1;
   color: var(--color-dorado);
 }
 
@@ -939,41 +944,108 @@ a {
   vertical-align: super;
 }
 
-/* Pilares con ícono y aro dorado */
-.pilares {
+/* Tapete de competencia: paneles con uniones y una cinta que une las marcas en X */
+.tapete {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: 1fr; /* celular: una columna con la cinta en vertical */
   gap: 1.5rem;
   margin: 2rem 0 0;
+  padding: 2rem 1.5rem 1.5rem;
+  list-style: none;
+  color: var(--color-texto-suave);
+  background-color: #1b1530;
+  background-image: linear-gradient(90deg, rgb(255 255 255 / 6%) 1px, transparent 1px);
+  background-size: 12.5% 100%;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-flotante);
+}
+
+/* Cinta blanca que une las marcas en X (vertical en celular, horizontal en escritorio) */
+.tapete::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  bottom: 3rem;
+  left: calc(1.5rem + 1.25rem - 1px);
+  width: 2px;
+  background: repeating-linear-gradient(180deg, rgb(255 255 255 / 45%) 0 18px, transparent 18px 28px);
+}
+
+.tapete li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  column-gap: 1rem;
+}
+
+.tapete h3 {
+  margin: 0.5rem 0 0.25rem;
+  color: var(--color-blanco);
+}
+
+.tapete p {
+  margin: 0;
+}
+
+/* Marca en X hecha con dos tiras de cinta */
+.marca-x {
+  position: relative;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #1b1530;
+}
+
+.marca-x::before,
+.marca-x::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-dorado);
+  border-radius: 1px;
+}
+
+.tapete .marca-x {
+  grid-row: span 2;
+}
+
+/* Conteo en ochos: cada pilar ocupa dos tiempos de la rutina */
+.conteo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin: 0;
   padding: 0;
   list-style: none;
+  counter-reset: none;
 }
 
-.pilar {
-  padding: 1.5rem;
-  background-color: var(--color-blanco);
-  border-radius: var(--radio-grande);
-  box-shadow: var(--sombra);
-  transition: transform var(--transicion), box-shadow var(--transicion);
+.conteo li {
+  padding: 1.25rem 1.5rem 1.25rem 0;
+  border-top: 3px solid var(--color-morado);
 }
 
-.pilar:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--sombra-morada);
+.conteo li + li {
+  padding-left: 1.5rem;
+  border-left: 1px solid rgb(76 0 125 / 15%);
 }
 
-.pilares i {
-  display: inline-grid;
-  place-items: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: var(--color-dorado);
-  background-color: var(--color-morado);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--color-blanco), 0 0 0 6px var(--color-dorado);
+.tiempos {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--fuente-display);
+  font-size: 3.5rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-dorado-oscuro);
 }
+
+
+
 
 /* Bloques alternos imagen + texto */
 .bloque-alterno {
@@ -994,32 +1066,16 @@ a {
   color: var(--color-dorado);
 }
 
-/* Pasos numerados con número en contorno dorado */
-.pasos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
+
+.marca-x::before {
+  transform: translateY(-50%) rotate(45deg);
 }
 
-.pasos li {
-  padding: 1.5rem;
-  background-color: var(--color-blanco);
-  border-radius: var(--radio);
-  box-shadow: var(--sombra);
+.marca-x::after {
+  transform: translateY(-50%) rotate(-45deg);
 }
 
-.pasos .numero {
-  display: block;
-  font-family: var(--fuente-titulos);
-  font-size: 3.25rem;
-  font-weight: 800;
-  line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 2px var(--color-dorado-oscuro);
-}
+
 
 /* Sección oscura */
 .seccion-oscura {
@@ -1032,7 +1088,8 @@ a {
 }
 
 .seccion-oscura .sobretitulo {
-  color: var(--color-dorado);
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
 }
 
 .seccion-oscura .espacio-imagen {
@@ -1432,7 +1489,8 @@ a {
 .pie {
   background-color: var(--color-negro);
   color: var(--color-blanco);
-  border-top: 2px solid var(--color-dorado);
+  border-top: 5px solid;
+  border-image: var(--franja-uniforme) 1;
 }
 
 .pie h2 {
@@ -1499,36 +1557,7 @@ a {
   }
 }
 
-/* Estrella fugaz decorativa en la portada */
-.estrella-fugaz {
-  position: absolute;
-  top: 12%;
-  left: 55%;
-  z-index: -1;
-  width: 140px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-dorado-claro));
-  border-radius: 2px;
-  opacity: 0;
-  animation: fugaz 7s ease-in 2s infinite;
-}
 
-@keyframes fugaz {
-  0% {
-    opacity: 0;
-    transform: translate(0, 0) rotate(-25deg);
-  }
-
-  4% {
-    opacity: 1;
-  }
-
-  12%,
-  100% {
-    opacity: 0;
-    transform: translate(-260px, 120px) rotate(-25deg);
-  }
-}
 
 /* Corte diagonal arriba y abajo para secciones de color */
 .borde-diagonal {
@@ -1578,7 +1607,37 @@ a {
 }
 
 /* 9. Responsive (mobile first: los estilos de arriba son para móvil) */
+@media (width >= 768px) {
+  .tapete {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tapete::before {
+    display: none;
+  }
+}
+
 @media (width >= 992px) {
+  .tapete {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .tapete::before {
+    inset: 3.25rem 1.5rem auto;
+    display: block;
+    width: auto;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, rgb(255 255 255 / 45%) 0 18px, transparent 18px 28px);
+  }
+
+  .tapete li {
+    display: block;
+  }
+
+  .tapete h3 {
+    margin-top: 1rem;
+  }
+
   .cifras {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
