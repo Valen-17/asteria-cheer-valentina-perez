@@ -529,6 +529,22 @@ a {
   background-color: rgb(76 0 125 / 4%);
 }
 
+/* Al llegar desde "Ver horarios" (tabla.html#horario-mini): la fila queda debajo del menú y resaltada */
+.tabla-asteria tbody tr {
+  scroll-margin-top: 12rem;
+}
+
+.tabla-asteria tbody tr:target > * {
+  background-color: rgb(212 175 55 / 22%);
+  animation: resaltar-fila 2.5s ease-out;
+}
+
+@keyframes resaltar-fila {
+  from {
+    background-color: rgb(212 175 55 / 60%);
+  }
+}
+
 .tabla-asteria tfoot td {
   padding: 1rem;
   font-size: 0.9rem;
@@ -1798,6 +1814,17 @@ a {
 
   .tabla-asteria tfoot td {
     border-radius: var(--radio);
+  }
+
+  /* Tarjeta a la que se llegó desde "Ver horarios": marco dorado; el encabezado conserva su morado */
+  .tabla-asteria tbody tr:target {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+  }
+
+  .tabla-asteria tbody tr:target > th {
+    background-color: var(--color-morado);
+    animation: none;
   }
 }
 
