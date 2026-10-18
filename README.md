@@ -2,7 +2,7 @@
 
 > Cada sueño es una estrella que nos impulsa a avanzar.
 
-Portal web de **Asteria Cheer**, club de porrismo ficticio en Medellín. Proyecto académico de la asignatura Herramientas de Programación III (I.U. Pascual Bravo).
+Portal web de **Asteria Cheer**, club de porrismo ficticio en Medellín. Proyecto académico de la asignatura Herramientas de Programación 3 (I.U. Pascual Bravo).
 
 - **Sitio publicado:** https://valen-17.github.io/asteria-cheer-valentina-perez/
 - **Autora:** Valentina Pérez
