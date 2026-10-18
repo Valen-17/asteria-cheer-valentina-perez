@@ -33,6 +33,12 @@ if (galeria && document.getElementById('visor-fotos') && window.bootstrap) {
   cargar('./controller/visorController.js', ({ iniciarVisor }) => iniciarVisor(galeria, window.bootstrap.Modal));
 }
 
+// Formulario "Comparte tus fotos" (galería)
+const formularioFotos = document.querySelector('#form-fotos');
+if (formularioFotos) {
+  cargar('./controller/fotosController.js', ({ iniciarFotos }) => iniciarFotos(formularioFotos));
+}
+
 // Aparición suave de secciones al hacer scroll (todas las páginas)
 const revelables = document.querySelectorAll('.revelar');
 if (revelables.length) {

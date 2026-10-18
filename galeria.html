@@ -319,9 +319,77 @@
             <div class="panel-lateral">
               <h2 id="titulo-comparte" class="h5">Comparte tus fotos</h2>
               <p class="mb-3">¿Tienes fotos de una competencia o un entrenamiento? Envíanoslas y las publicamos con tu nombre.</p>
-              <a class="btn btn-outline-primary btn-sm" href="contacto.html">Enviar fotos</a>
+              <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#modal-fotos">Enviar fotos <i class="bi bi-upload" aria-hidden="true"></i></button>
             </div>
           </aside>
+        </div>
+      </div>
+    </div>
+    <!-- Formulario "Comparte tus fotos" en ventana emergente; lo controla js/controller/fotosController.js -->
+    <div class="modal fade" id="modal-fotos" tabindex="-1" role="dialog" aria-labelledby="titulo-modal-fotos">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content modal-asteria">
+          <div class="modal-header">
+            <h2 class="modal-title h4" id="titulo-modal-fotos">Comparte tus fotos</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <p>Elige hasta 5 fotos en JPG, PNG o WebP, de máximo 5 MB cada una. Las revisamos antes de publicarlas.</p>
+
+            <div class="alerta alerta-exito" role="status" tabindex="-1" data-exito-fotos hidden>
+              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+              <p class="mb-0" data-texto></p>
+            </div>
+
+            <form id="form-fotos" class="formulario-asteria formulario-modal" action="#" method="post" enctype="multipart/form-data">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="fotos-nombre">Nombre completo</label>
+                  <input class="form-control" id="fotos-nombre" name="nombre" type="text" autocomplete="name" required minlength="3" aria-describedby="error-fotos-nombre">
+                  <p class="invalid-feedback" id="error-fotos-nombre"></p>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="fotos-email">Correo electrónico</label>
+                  <input class="form-control" id="fotos-email" name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com" aria-describedby="error-fotos-email">
+                  <p class="invalid-feedback" id="error-fotos-email"></p>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="fotos-evento">¿Dónde se tomaron?</label>
+                  <select class="form-select" id="fotos-evento" name="evento" required aria-describedby="error-fotos-evento">
+                    <option value="">Selecciona una opción</option>
+                    <option value="entrenamiento">Entrenamiento</option>
+                    <option value="competencia">Competencia</option>
+                    <option value="evento">Evento o presentación</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                  <p class="invalid-feedback" id="error-fotos-evento"></p>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="fotos-archivos">Fotos</label>
+                  <input class="form-control" id="fotos-archivos" name="fotos" type="file" accept="image/jpeg,image/png,image/webp" multiple required aria-describedby="ayuda-fotos error-fotos-fotos">
+                  <p class="form-text" id="ayuda-fotos">Puedes seleccionar varias a la vez.</p>
+                  <p class="invalid-feedback" id="error-fotos-fotos"></p>
+                  <ul class="vista-previa" data-vista-previa></ul>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="fotos-autorizacion" name="autorizacion" required aria-describedby="error-fotos-autorizacion">
+                    <label class="form-check-label" for="fotos-autorizacion">Autorizo a Asteria Cheer a publicar estas fotos con mi nombre y confirmo que las personas que aparecen (o sus acudientes, si son menores de edad) están de acuerdo.</label>
+                    <p class="invalid-feedback" id="error-fotos-autorizacion"></p>
+                  </div>
+                </div>
+
+                <div class="col-12 d-flex flex-wrap gap-2">
+                  <button class="btn btn-dorado" type="submit">Enviar fotos <i class="bi bi-upload" aria-hidden="true"></i></button>
+                  <button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

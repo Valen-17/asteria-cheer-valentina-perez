@@ -647,6 +647,49 @@ a {
   margin: 0;
 }
 
+/* Formulario dentro de una ventana emergente: sin la tarjeta exterior */
+.formulario-modal {
+  padding: 0;
+  border-top: 0;
+  box-shadow: none;
+}
+
+.modal-asteria .modal-header {
+  border-bottom: 5px solid;
+  border-image: var(--franja-uniforme) 1;
+}
+
+.modal-asteria .modal-title {
+  color: var(--color-morado);
+}
+
+/* Miniaturas de las fotos elegidas */
+.vista-previa {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8rem;
+}
+
+.vista-previa img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radio);
+}
+
+.vista-previa span {
+  display: block;
+  margin-top: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* Panel oscuro: qué incluye la clase de prueba */
 .panel-incluye {
   padding: 1.5rem;

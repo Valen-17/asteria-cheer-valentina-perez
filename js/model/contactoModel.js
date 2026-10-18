@@ -50,14 +50,19 @@ export function validarCampo(campo, valor) {
   return regla ? regla(valor) : '';
 }
 
-// Valida todos los campos; devuelve { valido, errores } donde errores es { campo: mensaje }
-export function validarFormulario(datos) {
+// Valida todos los campos con un conjunto de reglas; devuelve { valido, errores } donde errores es { campo: mensaje }.
+// Se reutiliza en otros formularios del sitio (por ejemplo, "Comparte tus fotos").
+export function validarConReglas(reglas, datos) {
   const errores = {};
-  for (const campo of Object.keys(REGLAS)) {
-    const error = validarCampo(campo, datos[campo]);
+  for (const [campo, regla] of Object.entries(reglas)) {
+    const error = regla(datos[campo]);
     if (error) errores[campo] = error;
   }
   return { valido: Object.keys(errores).length === 0, errores };
+}
+
+export function validarFormulario(datos) {
+  return validarConReglas(REGLAS, datos);
 }
 
 // Lee ?categoria=junior del enlace para dejar el campo preseleccionado ('' si no es válida)
