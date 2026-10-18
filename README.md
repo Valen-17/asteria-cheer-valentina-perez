@@ -77,5 +77,6 @@ Abrir el sitio con la extensión Live Server de VS Code (los módulos de JavaScr
 ## Créditos de imágenes
 
 - Logo e isotipo: generados con IA para este proyecto.
+- Uniforme 2026 (frente, espalda y moño en la galería): diseño conceptual generado con IA.
 
-_Las demás imágenes se listarán aquí con su fuente (Unsplash, Pexels o generadas con IA)._
+- Fotos de categorías (Mini, Junior, Senior, Open), campeonas en el podio (y su recorte de detalle), pirámide en el gimnasio, lanzamiento, gimnasia, moño y uniforme completo: generadas con IA para este proyecto.

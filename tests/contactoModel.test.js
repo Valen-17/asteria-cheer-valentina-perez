@@ -1,7 +1,7 @@
 // Pruebas unitarias del modelo del formulario (se ejecutan con: npm test)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validarCampo, validarFormulario } from '../js/model/contactoModel.js';
+import { validarCampo, validarFormulario, categoriaDesdeUrl, mensajeExito } from '../js/model/contactoModel.js';
 
 const valido = {
   nombre: 'Valentina Pérez',
@@ -49,4 +49,22 @@ test('formulario vacío reporta los 5 campos', () => {
   const { valido: ok, errores } = validarFormulario({});
   assert.equal(ok, false);
   assert.deepEqual(Object.keys(errores).sort(), ['autorizacion', 'categoria', 'email', 'mensaje', 'nombre']);
+});
+
+test('categoria: acepta la opción de evaluación', () => {
+  assert.equal(validarCampo('categoria', 'evaluacion'), '');
+});
+
+test('categoriaDesdeUrl: preselecciona solo categorías válidas', () => {
+  assert.equal(categoriaDesdeUrl('?categoria=junior'), 'junior');
+  assert.equal(categoriaDesdeUrl('?categoria=master'), '');
+  assert.equal(categoriaDesdeUrl(''), '');
+});
+
+test('mensajeExito: usa el primer nombre, la categoría y el correo', () => {
+  assert.equal(
+    mensajeExito({ nombre: '  Valentina Pérez ', categoria: 'junior', email: 'v@correo.com ' }),
+    '¡Gracias, Valentina! Recibimos tu solicitud para tu clase de prueba en la categoría Junior. Te escribiremos a v@correo.com en las próximas 48 horas.',
+  );
+  assert.match(mensajeExito({ nombre: 'Ana', categoria: 'evaluacion', email: 'a@b.co' }), /tu evaluación de nivel/);
 });

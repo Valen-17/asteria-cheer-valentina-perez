@@ -1,40 +1,52 @@
 /* ==========================================================================
    Asteria Cheer — hoja de estilos propia
    Orden: 1. Variables  2. Base  3. Navegación  4. Encabezados de página
-          5. Componentes  6. Pie de página  7. Responsive
+          5. Componentes  6. Galería  7. Pie de página
+          8. Efectos y animaciones  9. Responsive
    ========================================================================== */
 
 /* 1. Variables (tokens de diseño). Colores y fuentes se usan solo desde aquí. */
 :root {
   /* Paleta: contraste WCAG AA verificado en las combinaciones usadas */
   --color-morado: #4c007d;
+  --color-morado-noche: #24003b;
   --color-morado-claro: #7a10c0;
   --color-morado-suave: #f1e4fb;
   --color-dorado: #d4af37;
   --color-dorado-claro: #e6c65c;
+  --color-dorado-brillo: #f6e3a1;
   --color-dorado-oscuro: #8a6d1f; /* dorado para texto sobre fondo claro */
   --color-negro: #121212;
   --color-fondo: #f7f5fa;
   --color-texto: #1e1b24;
+  --color-texto-suave: #c9c3d1;
   --color-blanco: #fff;
   --color-error: #b3261e;
   --color-exito: #1b7a3d;
 
   /* Tipografía */
-  --fuente-titulos: "Montserrat", system-ui, sans-serif;
+  --fuente-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif; /* títulos grandes, estilo camiseta */
+  --fuente-titulos: "Montserrat", system-ui, sans-serif; /* interfaz: menú, etiquetas, botones */
   --fuente-texto: "Nunito", system-ui, sans-serif;
 
   /* Espaciado, bordes y sombras */
   --espacio-seccion: clamp(3rem, 6vw, 5rem);
+  --corte-diagonal: 3vw;
   --radio: 0.75rem;
-  --sombra: 0 0.5rem 1.5rem rgb(18 18 18 / 10%);
+  --radio-grande: 1.25rem;
+  --sombra: 0 0.35rem 1.25rem rgb(18 18 18 / 8%);
+  --sombra-morada: 0 1rem 2.5rem rgb(76 0 125 / 20%);
+  --sombra-flotante: 0 1.25rem 2.5rem -0.5rem rgb(76 0 125 / 22%), 0 0.5rem 1rem -0.25rem rgb(18 18 18 / 8%);
   --transicion: 0.25s ease;
+  --transicion-fluida: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Bootstrap toma estos colores para sus componentes */
   --bs-primary: var(--color-morado);
   --bs-primary-rgb: 76, 0, 125;
   --bs-link-color: var(--color-morado);
   --bs-link-hover-color: var(--color-morado-claro);
+  --bs-link-color-rgb: 76, 0, 125; /* Bootstrap 5.3 pinta los enlaces con estas variables RGB */
+  --bs-link-hover-color-rgb: 122, 16, 192;
   --bs-body-font-family: var(--fuente-texto);
   --bs-body-color: var(--color-texto);
   --bs-body-bg: var(--color-fondo);
@@ -55,13 +67,25 @@ main {
   flex: 1;
 }
 
-h1,
-h2,
 h3,
 h4,
 .marca {
   font-family: var(--fuente-titulos);
   font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1,
+h2 {
+  font-family: var(--fuente-display);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+h2 {
+  font-size: clamp(2.1rem, 2.5vw + 1.2rem, 3rem);
 }
 
 a {
@@ -95,51 +119,132 @@ a {
   padding-block: var(--espacio-seccion);
 }
 
+.fondo-suave {
+  background-color: var(--color-morado-suave);
+}
+
 .texto-dorado {
   color: var(--color-dorado-oscuro);
 }
 
-/* 3. Navegación */
+/* Sobretítulo: etiqueta inclinada, como el corte diagonal del uniforme */
+.sobretitulo {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.2rem 0.9rem;
+  font-family: var(--fuente-titulos);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-blanco);
+  background-color: var(--color-morado);
+  clip-path: polygon(0.5rem 0, 100% 0, calc(100% - 0.5rem) 100%, 0 100%);
+}
+
+
+.titulo-gigante {
+  font-size: clamp(2.75rem, 7vw, 5.25rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+/* Lema completo en la portada: más pequeño que un título gigante para que quepa entero */
+.titulo-lema {
+  font-size: clamp(2.5rem, 4.5vw + 0.75rem, 4.25rem);
+  line-height: 0.95;
+}
+
+/* Palabra destacada en dorado */
+.texto-estrella {
+  color: var(--color-dorado);
+}
+
+
+/* 3. Navegación: barra de vidrio oscuro que deja ver el contenido al hacer scroll */
 .navbar-asteria {
-  background-color: var(--color-negro);
+  background-color: rgb(18 18 18 / 82%);
+  backdrop-filter: blur(16px) saturate(150%);
   border-bottom: 3px solid var(--color-dorado);
+  transition: background-color var(--transicion-fluida), box-shadow var(--transicion-fluida);
 }
 
 .navbar-asteria .marca {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   color: var(--color-dorado);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition: transform var(--transicion-fluida);
+}
+
+.navbar-asteria .marca:hover {
+  transform: scale(1.02);
+}
+
+/* Isotipo circular con aro dorado y brillo sutil */
+.isotipo {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--color-dorado), 0 0 10px rgb(212 175 55 / 40%);
+  transition: transform var(--transicion-fluida);
+}
+
+.navbar-asteria .marca:hover .isotipo {
+  transform: rotate(8deg);
 }
 
 .navbar-asteria .nav-link {
   color: var(--color-blanco);
   font-family: var(--fuente-titulos);
   font-weight: 600;
-  border-bottom: 2px solid transparent;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  transition: all var(--transicion);
 }
 
-.navbar-asteria .nav-link:hover,
+.navbar-asteria .nav-link:hover {
+  color: var(--color-dorado);
+  background-color: rgb(255 255 255 / 8%);
+}
+
 .navbar-asteria .nav-link[aria-current="page"] {
   color: var(--color-dorado);
-  border-bottom-color: var(--color-dorado);
+  background-color: rgb(212 175 55 / 15%);
+}
+
+/* "Inscripción" como botón de acción principal dentro de la barra */
+.navbar-asteria .nav-link.nav-cta {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+  box-shadow: 0 0.35rem 1rem rgb(212 175 55 / 30%);
+}
+
+.navbar-asteria .nav-link.nav-cta:hover,
+.navbar-asteria .nav-link.nav-cta:focus-visible,
+.navbar-asteria .nav-link.nav-cta[aria-current="page"] {
+  color: var(--color-negro);
+  background-color: var(--color-dorado-claro);
 }
 
 .navbar-asteria .navbar-toggler {
   border-color: var(--color-dorado);
+  border-radius: var(--radio);
 }
 
 .navbar-asteria .navbar-toggler-icon {
   filter: invert(1);
 }
 
-/* 4. Encabezados de página (hero) */
+/* 4. Encabezados de página (hero) con degradado noche y corte diagonal inferior */
 .hero {
-  background-color: var(--color-morado);
   color: var(--color-blanco);
-  padding-block: var(--espacio-seccion);
+  background: linear-gradient(120deg, var(--color-negro) 0%, var(--color-morado-noche) 45%, var(--color-morado) 100%);
+  padding-block: var(--espacio-seccion) calc(var(--espacio-seccion) + var(--corte-diagonal));
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--corte-diagonal)), 0 100%);
 }
 
 .hero .etiqueta {
@@ -160,9 +265,26 @@ a {
   color: var(--color-blanco);
 }
 
-/* Portada de inicio: fondo negro para que el logo (dorado y morado) resalte */
+/* Migas de pan en encabezados internos */
+.migas {
+  --bs-breadcrumb-divider-color: var(--color-dorado-claro);
+  --bs-breadcrumb-item-active-color: var(--color-morado-suave);
+
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.migas a {
+  color: var(--color-dorado-claro);
+}
+
+/* Portada de inicio: esquinas diagonales moradas con filo dorado (no cruzan el texto) */
 .hero-portada {
-  background-color: var(--color-negro);
+  background:
+    linear-gradient(to top right, rgb(76 0 125 / 60%) 0 22%, transparent 22.1%),
+    linear-gradient(to top right, transparent 22.3%, rgb(212 175 55 / 70%) 22.4% 22.7%, transparent 22.8%),
+    linear-gradient(to bottom left, rgb(76 0 125 / 35%) 0 12%, transparent 12.1%),
+    var(--color-negro);
 }
 
 .logo-portada {
@@ -171,15 +293,71 @@ a {
   height: auto;
 }
 
+
+
+/* Cuenta regresiva: como el marcador de una competencia */
+.tarjeta-competencia {
+  margin-top: 2rem;
+  max-width: 24rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-blanco);
+  background-color: #0c0a10;
+  border: 1px solid rgb(212 175 55 / 45%);
+  border-left: 5px solid var(--color-dorado);
+  border-radius: var(--radio);
+}
+
+.tarjeta-competencia h2 {
+  color: var(--color-blanco);
+}
+
+.cuenta-regresiva {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.cuenta-regresiva div {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0.5rem 0.25rem;
+  background-color: rgb(0 0 0 / 35%);
+  border-radius: var(--radio);
+}
+
+.cuenta-regresiva dd {
+  margin: 0;
+  font-family: var(--fuente-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-dorado);
+  font-variant-numeric: tabular-nums;
+}
+
+.cuenta-regresiva dt {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 /* 5. Componentes */
+
+/* Botón dorado con brillo que cruza al pasar el mouse */
 .btn-dorado {
+  position: relative;
+  overflow: hidden;
   background-color: var(--color-dorado);
   color: var(--color-negro);
   font-family: var(--fuente-titulos);
   font-weight: 700;
   border: 2px solid var(--color-dorado);
-  transition: background-color var(--transicion), transform var(--transicion);
+  transition: background-color var(--transicion), transform var(--transicion-fluida);
 }
+
 
 .btn-dorado:hover,
 .btn-dorado:focus-visible {
@@ -187,6 +365,7 @@ a {
   color: var(--color-negro);
   transform: translateY(-2px);
 }
+
 
 .btn-contorno {
   color: var(--color-blanco);
@@ -201,21 +380,104 @@ a {
   color: var(--color-morado);
 }
 
+/* Botón de contorno con el morado del club (Bootstrap trae azul por defecto) */
+.btn-outline-primary {
+  --bs-btn-color: var(--color-morado);
+  --bs-btn-border-color: var(--color-morado);
+  --bs-btn-hover-color: var(--color-blanco);
+  --bs-btn-hover-bg: var(--color-morado);
+  --bs-btn-hover-border-color: var(--color-morado);
+  --bs-btn-active-bg: var(--color-morado-claro);
+  --bs-btn-active-border-color: var(--color-morado-claro);
+
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+}
+
 /* Tarjetas de Bootstrap con identidad del club */
 .card {
   border: 0;
   border-top: 4px solid var(--color-dorado);
   border-radius: var(--radio);
   box-shadow: var(--sombra);
-  transition: transform var(--transicion);
+  transition: transform var(--transicion-fluida), box-shadow var(--transicion-fluida);
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-flotante);
+}
+
+/* Enlace de siguiente paso al pie de una card ("Ver horarios →") */
+.enlace-flecha {
+  padding-top: 0.5rem;
+  white-space: nowrap;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: var(--color-morado);
+  text-decoration: none;
+}
+
+.enlace-flecha .flecha {
+  display: inline-block;
+  transition: transform var(--transicion-fluida);
+}
+
+.enlace-flecha:hover .flecha,
+.enlace-flecha:focus-visible .flecha {
+  transform: translateX(4px);
 }
 
 .card-title {
   color: var(--color-morado);
+}
+
+/* Número en la esquina de las cards de categoría */
+.numero-card {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgb(255 255 255 / 70%);
+}
+
+/* Espacio reservado para fotos que aún no están */
+.espacio-imagen {
+  background: repeating-linear-gradient(135deg, var(--color-morado-suave) 0 12px, var(--color-blanco) 12px 24px);
+  border: 2px dashed var(--color-morado-claro);
+}
+
+.card > .espacio-imagen {
+  border-radius: calc(var(--radio) - 4px) calc(var(--radio) - 4px) 0 0;
+}
+
+/* Etiquetas tipo píldora dentro de las cards */
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.etiquetas li {
+  padding: 0.15rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-morado);
+  background-color: rgb(76 0 125 / 6%);
+  border: 1px solid rgb(76 0 125 / 18%);
+  border-radius: 999px;
 }
 
 /* Panel lateral (aside) */
@@ -226,11 +488,1080 @@ a {
   padding: 1.5rem;
 }
 
-/* 6. Pie de página */
+/* Tabla de horarios: encabezado morado, filas alternas (table-striped) y pie oscuro.
+   En celular cada fila se muestra como tarjeta (ver sección 9. Responsive). */
+.tabla-contenedor {
+  background-color: var(--color-blanco);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra);
+}
+
+.tabla-asteria {
+  --bs-table-bg: transparent;
+  --bs-table-border-color: rgb(76 0 125 / 10%);
+}
+
+.tabla-asteria thead th {
+  padding: 1rem;
+  font-family: var(--fuente-titulos);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-blanco);
+  background-color: var(--color-morado);
+  border-bottom: 3px solid var(--color-dorado);
+}
+
+.tabla-asteria tbody th,
+.tabla-asteria tbody td {
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.tabla-asteria tbody th {
+  font-family: var(--fuente-titulos);
+  color: var(--color-morado);
+}
+
+.tabla-asteria tbody tr:hover > * {
+  background-color: rgb(76 0 125 / 4%);
+}
+
+/* Al llegar desde "Ver horarios" (tabla.html#horario-mini): la fila queda debajo del menú y resaltada */
+.tabla-asteria tbody tr {
+  scroll-margin-top: 12rem;
+}
+
+.tabla-asteria tbody tr:target > * {
+  background-color: rgb(212 175 55 / 22%);
+  animation: resaltar-fila 2.5s ease-out;
+}
+
+@keyframes resaltar-fila {
+  from {
+    background-color: rgb(212 175 55 / 60%);
+  }
+}
+
+.tabla-asteria tfoot td {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-blanco);
+  background-color: var(--color-negro);
+  border-bottom: 0;
+}
+
+.tabla-asteria tfoot .bi {
+  color: var(--color-dorado);
+}
+
+.nivel {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  line-height: 1.3;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-negro);
+  background-color: var(--color-dorado-claro);
+  border-radius: 0.5rem;
+}
+
+/* Criterios de evaluación con ícono */
+.criterios {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.criterios li {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: var(--color-blanco);
+  border-left: 4px solid var(--color-dorado);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  box-shadow: var(--sombra);
+}
+
+.criterios li > .bi {
+  flex-shrink: 0;
+  font-size: 1.75rem;
+  color: var(--color-morado);
+}
+
+.criterios p {
+  margin: 0;
+}
+
+/* Datos de la sede */
+.datos-sede dt {
+  font-family: var(--fuente-titulos);
+  color: var(--color-morado);
+}
+
+.datos-sede dd {
+  margin-bottom: 0.75rem;
+}
+
+/* Formulario de inscripción */
+.formulario-asteria {
+  --bs-form-valid-color: var(--color-exito);
+  --bs-form-valid-border-color: var(--color-exito);
+  --bs-form-invalid-color: var(--color-error);
+  --bs-form-invalid-border-color: var(--color-error);
+
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background-color: var(--color-blanco);
+  border-top: 4px solid var(--color-dorado);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra);
+}
+
+.formulario-asteria .form-label {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: var(--color-morado);
+}
+
+/* Campos de ~50 px de alto: más fáciles de tocar en celular */
+.formulario-asteria .form-control,
+.formulario-asteria .form-select {
+  min-height: 3.1rem;
+}
+
+/* Qué llevar: lista de maleta con casillas */
+.lista-maleta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem 2rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-maleta li {
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.lista-maleta li::before {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid var(--color-morado);
+  border-radius: 0.3rem;
+}
+
+.lista-maleta p {
+  margin: 0;
+}
+
+/* Formulario dentro de una ventana emergente: sin la tarjeta exterior */
+.formulario-modal {
+  padding: 0;
+  border-top: 0;
+  box-shadow: none;
+}
+
+.modal-asteria .modal-header {
+  border-bottom: 3px solid var(--color-dorado);
+}
+
+.modal-asteria .modal-title {
+  color: var(--color-morado);
+}
+
+/* Miniaturas de las fotos elegidas */
+.vista-previa {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8rem;
+}
+
+.vista-previa img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radio);
+}
+
+.vista-previa span {
+  display: block;
+  margin-top: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Panel oscuro: qué incluye la clase de prueba */
+.panel-incluye {
+  padding: 1.5rem;
+  color: var(--color-blanco);
+  background: linear-gradient(160deg, var(--color-morado-noche), var(--color-negro));
+  border: 1px solid rgb(212 175 55 / 30%);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra-flotante);
+}
+
+.panel-incluye h2 {
+  color: var(--color-blanco);
+}
+
+.panel-incluye h2 .bi {
+  color: var(--color-dorado);
+}
+
+.lista-incluye {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-incluye li {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.lista-incluye i.bi {
+  flex-shrink: 0;
+  color: var(--color-dorado-claro);
+}
+
+/* Foco morado en lugar del azul de Bootstrap */
+.formulario-asteria .form-control:focus,
+.formulario-asteria .form-select:focus,
+.formulario-asteria .form-check-input:focus {
+  border-color: var(--color-morado-claro);
+  box-shadow: 0 0 0 0.25rem rgb(122 16 192 / 25%);
+}
+
+.formulario-asteria .form-check-input:checked {
+  background-color: var(--color-morado);
+  border-color: var(--color-morado);
+}
+
+.formulario-asteria .invalid-feedback {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.contador {
+  flex-shrink: 0;
+}
+
+.contador-listo {
+  color: var(--color-exito);
+  font-weight: 700;
+}
+
+/* Mensajes de confirmación y de errores */
+.alerta {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radio);
+}
+
+.alerta > i.bi {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.alerta-exito {
+  color: var(--color-exito);
+  background-color: #e8f5ec;
+  border-left: 4px solid var(--color-exito);
+}
+
+.alerta-errores {
+  display: block;
+  color: var(--color-error);
+  background-color: #fdecea;
+  border-left: 4px solid var(--color-error);
+}
+
+.alerta-errores h3 {
+  color: var(--color-error);
+}
+
+.alerta-errores a {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+.alerta[hidden] {
+  display: none;
+}
+
+/* Página "El porrismo" */
+.bloque-info + .bloque-info {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgb(76 0 125 / 15%);
+}
+
+.foto-info {
+  margin: 1.5rem 0;
+}
+
+.foto-info .ratio {
+  overflow: hidden;
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra-morada);
+}
+
+.foto-info figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+/* Dato destacado (becas) */
+.dato-destacado {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  color: var(--color-morado);
+  background-color: var(--color-morado-suave);
+  border-radius: var(--radio);
+}
+
+.dato-destacado > i.bi {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-dorado-oscuro);
+}
+
+/* Escala visual de niveles del 1 al 7 */
+.escala-niveles {
+  margin: 1.5rem 0;
+}
+
+.escala-niveles ol {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end; /* las barras suben como una escalera */
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.escala-niveles li {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.4rem;
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  color: var(--color-morado);
+  background-color: var(--color-morado-suave);
+  border-radius: 0.4rem 0.4rem 0 0;
+}
+
+/* Cada nivel es más alto que el anterior: dificultad progresiva */
+.escala-niveles .n1 {
+  height: 2.5rem;
+}
+
+.escala-niveles .n2 {
+  height: 3.25rem;
+}
+
+.escala-niveles .n3 {
+  height: 4rem;
+}
+
+.escala-niveles .n4 {
+  height: 4.75rem;
+}
+
+.escala-niveles .n5 {
+  height: 5.5rem;
+}
+
+.escala-niveles .n6 {
+  height: 6.25rem;
+}
+
+.escala-niveles .n7 {
+  height: 7rem;
+}
+
+.escala-niveles .activo {
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+}
+
+.escala-niveles figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.escala-niveles .muestra {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-dorado);
+  border-radius: 0.2rem;
+}
+
+/* Lista con estrellas doradas */
+.lista-estrella {
+  padding: 0;
+  list-style: none;
+}
+
+.lista-estrella li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 1.75rem;
+}
+
+.lista-estrella li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--color-dorado-oscuro);
+}
+
+/* Glosario (lista de definiciones) */
+.glosario dt {
+  margin-top: 1rem;
+  font-family: var(--fuente-titulos);
+  color: var(--color-morado);
+}
+
+.glosario dt:first-child {
+  margin-top: 0;
+}
+
+.glosario dd {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* Cifras del club: marcador que monta sobre el borde inferior del hero */
+.franja-cifras {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * (var(--corte-diagonal) + 2.5rem));
+}
+
+.cifras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+  text-align: center;
+  background-color: var(--color-negro);
+  border: 1px solid rgb(212 175 55 / 35%);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-flotante);
+}
+
+.cifras li {
+  padding: 1rem 0.75rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+
+.cifras strong {
+  display: block;
+  font-family: var(--fuente-display);
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-dorado);
+}
+
+.cifras .sufijo {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
+/* Tapete de competencia: paneles con uniones y una cinta que une las marcas en X */
+.tapete {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr; /* celular: una columna con la cinta en vertical */
+  gap: 1.5rem;
+  margin: 2rem 0 0;
+  padding: 2rem 1.5rem 1.5rem;
+  list-style: none;
+  color: var(--color-texto-suave);
+  background-color: #1b1530;
+  background-image: linear-gradient(90deg, rgb(255 255 255 / 6%) 1px, transparent 1px);
+  background-size: 12.5% 100%;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-flotante);
+}
+
+/* Cinta blanca que une las marcas en X (vertical en celular, horizontal en escritorio) */
+.tapete::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  bottom: 3rem;
+  left: calc(1.5rem + 1.25rem - 1px);
+  width: 2px;
+  background: repeating-linear-gradient(180deg, rgb(255 255 255 / 45%) 0 18px, transparent 18px 28px);
+}
+
+.tapete li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  column-gap: 1rem;
+}
+
+.tapete h3 {
+  margin: 0.5rem 0 0.25rem;
+  color: var(--color-blanco);
+}
+
+.tapete p {
+  margin: 0;
+}
+
+/* Marca en X hecha con dos tiras de cinta */
+.marca-x {
+  position: relative;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #1b1530;
+}
+
+.marca-x::before,
+.marca-x::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-dorado);
+  border-radius: 1px;
+}
+
+.tapete .marca-x {
+  grid-row: span 2;
+}
+
+/* Conteo en ochos: cada pilar ocupa dos tiempos de la rutina */
+.conteo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.conteo li {
+  padding: 1.25rem 1.5rem 1.25rem 0;
+  border-top: 3px solid var(--color-morado);
+}
+
+.conteo li + li {
+  padding-left: 1.5rem;
+  border-left: 1px solid rgb(76 0 125 / 15%);
+}
+
+.tiempos {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--fuente-display);
+  font-size: 3.5rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-dorado-oscuro);
+}
+
+
+
+
+/* Bloques alternos imagen + texto */
+.bloque-alterno {
+  overflow: hidden;
+  border-radius: var(--radio-grande);
+}
+
+.bloque-alterno .espacio-imagen {
+  border-width: 0;
+}
+
+.bloque-oscuro {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+}
+
+.bloque-oscuro .card-title {
+  color: var(--color-dorado);
+}
+
+
+.marca-x::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.marca-x::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+
+
+/* Sección oscura */
+.seccion-oscura {
+  background-color: var(--color-negro);
+  color: var(--color-blanco);
+}
+
+.seccion-oscura h2 {
+  color: var(--color-blanco);
+}
+
+.seccion-oscura .sobretitulo {
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+}
+
+.seccion-oscura .espacio-imagen {
+  background: repeating-linear-gradient(135deg, #1c1226 0 12px, #241733 12px 24px);
+  border-color: var(--color-dorado);
+}
+
+/* Carruseles */
+.carrusel-asteria {
+  overflow: hidden;
+  border-radius: var(--radio-grande);
+}
+
+/* Carruseles un poco más compactos en pantallas grandes (el encabezado usa el mismo ancho) */
+.carrusel-ancho {
+  max-width: 62rem;
+  margin-inline: auto;
+}
+
+/* Carrusel 4:3 en móvil y 16:9 en escritorio */
+.carrusel-asteria .carousel-inner .ratio {
+  --bs-aspect-ratio: 75%;
+}
+
+.carrusel-asteria .carousel-caption {
+  bottom: 2.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgb(0 0 0 / 60%);
+  border-radius: var(--radio);
+}
+
+.carrusel-asteria .carousel-caption p {
+  margin: 0;
+  color: var(--color-blanco); /* .h5 de Bootstrap lo pintaba morado sobre fondo oscuro */
+}
+
+/* Llamado final con franjas diagonales */
+.cta-final {
+  padding-block: var(--espacio-seccion);
+  color: var(--color-blanco);
+  background:
+    repeating-linear-gradient(115deg, transparent 0 60px, rgb(255 255 255 / 4%) 60px 120px),
+    var(--color-morado);
+}
+
+.cta-final h2 {
+  color: var(--color-blanco);
+}
+
+.cta-final .lead {
+  max-width: 34rem;
+}
+
+/* Animadora recortada (PNG sin fondo) en la esquina inferior izquierda del llamado final.
+   En móvil se oculta porque taparía el texto centrado. */
+.animadora-cta {
+  display: none;
+}
+
+.animadora-img {
+  display: block;
+  width: auto;
+  height: 100%;
+  filter: drop-shadow(0 0 1.25rem rgb(0 0 0 / 45%));
+}
+
+/* 6. Galería */
+
+/* Miniaturas del carrusel destacado (son los indicadores de Bootstrap con otro estilo) */
+.carrusel-asteria .miniaturas {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+}
+
+.carrusel-asteria .miniaturas [data-bs-target] {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: var(--radio);
+  opacity: 0.55;
+  overflow: hidden;
+  transition: opacity var(--transicion), border-color var(--transicion);
+}
+
+.carrusel-asteria .miniaturas [data-bs-target].active,
+.carrusel-asteria .miniaturas [data-bs-target]:hover {
+  border-color: var(--color-dorado);
+  opacity: 1;
+}
+
+/* Filtros por categoría */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filtro {
+  padding: 0.4rem 1.1rem;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: var(--color-morado);
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-morado);
+  border-radius: 999px;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.filtro:hover,
+.filtro[aria-pressed="true"] {
+  color: var(--color-blanco);
+  background-color: var(--color-morado);
+}
+
+/* Cuadrícula tipo mosaico: algunas fotos ocupan dos columnas o dos filas */
+.mosaico {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 11rem;
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+
+.mosaico figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: var(--sombra);
+}
+
+.mosaico .espacio-imagen {
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.mosaico figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2rem 1rem 0.75rem;
+  font-weight: 700;
+  color: var(--color-blanco);
+  background: linear-gradient(transparent, rgb(18 18 18 / 85%));
+}
+
+.mosaico .ancha {
+  grid-column: span 2;
+}
+
+.mosaico .alta {
+  grid-row: span 2;
+}
+
+/* Fotos del mosaico que se abren en el visor */
+.abrir-foto {
+  display: block;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.abrir-foto:focus-visible {
+  outline-offset: -4px;
+}
+
+.icono-ampliar {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--transicion), transform var(--transicion);
+}
+
+.abrir-foto:hover .icono-ampliar,
+.abrir-foto:focus-visible .icono-ampliar {
+  opacity: 1;
+  transform: none;
+}
+
+/* Visor de fotos (modal de Bootstrap a pantalla completa) */
+.visor .modal-content {
+  color: var(--color-blanco);
+  background-color: rgb(10 8 14 / 98%);
+  border: 0;
+}
+
+.visor .modal-header {
+  border-bottom: 1px solid rgb(255 255 255 / 12%);
+}
+
+.visor .modal-title {
+  font-family: var(--fuente-titulos);
+  color: var(--color-blanco);
+}
+
+.visor-contador {
+  font-size: 0.9rem;
+  color: var(--color-dorado-claro);
+}
+
+.visor .modal-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.visor-lienzo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.visor-imagen {
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+  border-radius: var(--radio);
+  box-shadow: 0 0 3rem rgb(122 16 192 / 35%);
+}
+
+.visor-flecha {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  color: var(--color-blanco);
+  background-color: rgb(0 0 0 / 55%);
+  border: 1px solid rgb(212 175 55 / 60%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.visor-flecha:hover,
+.visor-flecha:focus-visible {
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+}
+
+.visor-flecha[hidden] {
+  display: none;
+}
+
+.visor-anterior {
+  left: 0.75rem;
+}
+
+.visor-siguiente {
+  right: 0.75rem;
+}
+
+.visor-ayuda {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--color-texto-suave);
+}
+
+/* Galería del uniforme: CSS Grid, 2 columnas en móvil y 4 en escritorio */
+.galeria-uniforme {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.figura-galeria {
+  margin: 0;
+  padding: 0.75rem;
+  background-color: var(--color-negro);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.figura-galeria img {
+  display: block;
+  width: 100%;
+  height: 20rem; /* altura fija: el uniforme se recorta desde arriba para no hacer columnas eternas */
+  object-fit: cover;
+  object-position: top;
+  border-radius: calc(var(--radio) / 2);
+}
+
+/* Fotos que llenan su recuadro recortándose sin deformarse (mosaico, carruseles y bloques) */
+.mosaico picture,
+.carrusel-asteria picture,
+.foto-cubre picture {
+  display: block;
+  height: 100%;
+}
+
+.mosaico img,
+.carrusel-asteria img,
+.foto-cubre img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%; /* prioriza la parte alta: caras y stunts */
+  transition: transform 0.5s ease;
+}
+
+/* Fotos con la acción arriba (p. ej. una flyer en el aire): encuadre desde el borde superior */
+.enfoque-arriba img {
+  object-position: center top;
+}
+
+.mosaico figure:hover img {
+  transform: scale(1.06);
+}
+
+.card:hover .foto-cubre img {
+  transform: scale(1.05);
+}
+
+.figura-galeria figcaption {
+  margin-top: 0.75rem;
+  color: var(--color-blanco);
+  font-size: 0.95rem;
+}
+
+.nota-ia {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+/* Video de la rutina */
+.video-rutina {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: var(--color-negro);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra-morada);
+}
+
+/* Subtítulos con fondo oscuro para que se lean sobre cualquier escena */
+.video-rutina::cue {
+  background-color: rgb(0 0 0 / 75%);
+  color: var(--color-blanco);
+  font-family: var(--fuente-texto);
+}
+
+/* Texto dentro de los espacios reservados (todas las variantes, de menor a mayor especificidad) */
+.espacio-imagen > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 100%;
+  color: var(--color-morado);
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  text-align: center;
+  transition: transform 0.4s ease;
+}
+
+.seccion-oscura .espacio-imagen > span {
+  color: var(--color-dorado-claro);
+}
+
+.carrusel-asteria .miniaturas .espacio-imagen > span {
+  font-size: 0.75rem;
+}
+
+.card:hover .espacio-imagen > span,
+.mosaico figure:hover .espacio-imagen > span {
+  transform: scale(1.08);
+}
+
+/* 7. Pie de página */
 .pie {
   background-color: var(--color-negro);
   color: var(--color-blanco);
   border-top: 3px solid var(--color-dorado);
+}
+
+.pie h2 {
+  color: var(--color-dorado);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.pie ul {
+  padding: 0;
+  list-style: none;
+}
+
+.pie li + li {
+  margin-top: 0.35rem;
 }
 
 .pie a {
@@ -243,17 +1574,253 @@ a {
 }
 
 .pie small {
-  color: #c9c3d1;
+  color: var(--color-texto-suave);
 }
 
-/* 7. Responsive (mobile first: los estilos de arriba son para móvil) */
+/* 8. Efectos y animaciones */
+
+/* Cielo estrellado: se agrega con la clase .cielo a cualquier sección oscura */
+.cielo {
+  position: relative;
+  isolation: isolate;
+}
+
+.cielo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgb(255 255 255 / 85%), transparent),
+    radial-gradient(1.5px 1.5px at 130px 80px, rgb(230 198 92 / 90%), transparent),
+    radial-gradient(1px 1px at 60px 150px, rgb(255 255 255 / 60%), transparent),
+    radial-gradient(1px 1px at 170px 175px, rgb(230 198 92 / 70%), transparent),
+    radial-gradient(1.5px 1.5px at 95px 12px, rgb(255 255 255 / 55%), transparent),
+    radial-gradient(1px 1px at 185px 115px, rgb(255 255 255 / 70%), transparent);
+  background-size: 210px 210px;
+  animation: titilar 5s ease-in-out infinite alternate;
+}
+
+@keyframes titilar {
+  from {
+    opacity: 0.45;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+/* Corte diagonal arriba y abajo para secciones de color */
+.borde-diagonal {
+  clip-path: polygon(0 0, 100% var(--corte-diagonal), 100% 100%, 0 calc(100% - var(--corte-diagonal)));
+  padding-block: calc(var(--espacio-seccion) + var(--corte-diagonal));
+}
+
+/* Palabra gigante de contorno detrás del contenido (decorativa, oculta a lectores de pantalla) */
+.con-marca-agua {
+  position: relative;
+  overflow: hidden;
+}
+
+.con-marca-agua > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.marca-agua {
+  position: absolute;
+  right: -1vw;
+  bottom: -2vw;
+  z-index: 0;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(5rem, 17vw, 13rem);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px currentcolor;
+  opacity: 0.14;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Aparición suave al hacer scroll (solo si JavaScript la activa y el usuario no pidió menos movimiento) */
+.animaciones .revelar {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animaciones .revelar.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 9. Responsive (mobile first: los estilos de arriba son para móvil) */
+@media (width >= 768px) {
+  .tapete {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tapete::before {
+    display: none;
+  }
+}
+
 @media (width >= 992px) {
+  .tapete {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .tapete::before {
+    inset: 3.25rem 1.5rem auto;
+    display: block;
+    width: auto;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, rgb(255 255 255 / 45%) 0 18px, transparent 18px 28px);
+  }
+
+  .tapete li {
+    display: block;
+  }
+
+  .tapete h3 {
+    margin-top: 1rem;
+  }
+
+  .cifras {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .navbar-asteria .nav-link.nav-cta {
+    margin-top: 0;
+    margin-left: 0.5rem;
+  }
+
+  .visor .modal-body {
+    padding: 1rem 5rem;
+  }
+
+  /* El glosario acompaña la lectura mientras se baja por la página */
+  .glosario {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .animadora-cta {
+    position: absolute;
+    top: 1.5rem;
+    bottom: 0;
+    left: max(0rem, calc(50% - 36rem));
+    z-index: 1;
+    display: block;
+    pointer-events: none;
+  }
+
+  .carrusel-asteria .carousel-inner .ratio {
+    --bs-aspect-ratio: 56.25%; /* 16:9: recorta menos las fotos verticales */
+  }
+
+  .figura-galeria img {
+    height: 30rem;
+  }
+
+  .mosaico {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 13rem;
+  }
+
+  .tarjeta-competencia {
+    margin: -3rem 0 0 auto;
+    position: relative;
+  }
+
+  .galeria-uniforme {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .logo-portada {
     max-width: 26rem;
   }
 
   .navbar-asteria .nav-link {
     margin-inline: 0.25rem;
+  }
+}
+
+/* Celular: la tabla se convierte en tarjetas (una por equipo) en lugar de desplazarse de lado */
+@media (width < 768px) {
+  .tabla-contenedor {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .tabla-asteria thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .tabla-asteria tbody,
+  .tabla-asteria tfoot,
+  .tabla-asteria tr,
+  .tabla-asteria th,
+  .tabla-asteria td {
+    display: block;
+  }
+
+  .tabla-asteria tbody tr {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background-color: var(--color-blanco);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+  }
+
+  .tabla-asteria tbody th {
+    font-size: 1.15rem;
+    color: var(--color-blanco);
+    background-color: var(--color-morado);
+    border-bottom: 3px solid var(--color-dorado);
+  }
+
+  .tabla-asteria tbody td {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    text-align: right;
+  }
+
+  .tabla-asteria tbody td::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--color-morado);
+    text-align: left;
+  }
+
+  .tabla-asteria tfoot td {
+    border-radius: var(--radio);
+  }
+
+  /* Tarjeta a la que se llegó desde "Ver horarios": marco dorado; el encabezado conserva su morado */
+  .tabla-asteria tbody tr:target {
+    outline: 3px solid var(--color-dorado);
+    outline-offset: 2px;
+  }
+
+  .tabla-asteria tbody tr:target > th {
+    background-color: var(--color-morado);
+    animation: none;
   }
 }
 

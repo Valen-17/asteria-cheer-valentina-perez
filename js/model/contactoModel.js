@@ -1,7 +1,16 @@
 // MODELO del formulario de inscripción.
 // Contiene solo datos y reglas de validación: no toca el DOM, por eso se puede probar con node --test.
 
-export const CATEGORIAS = ['mini', 'junior', 'senior', 'open'];
+// Opciones del campo "categoría" (valor del <select> -> texto visible)
+export const NOMBRES_CATEGORIA = {
+  mini: 'Mini (6 a 10 años)',
+  junior: 'Junior (11 a 14 años)',
+  senior: 'Senior (15 a 18 años)',
+  open: 'Open 4.2 (18+ años)',
+  evaluacion: 'Aún no sé: quiero una evaluación',
+};
+
+export const CATEGORIAS = Object.keys(NOMBRES_CATEGORIA);
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -41,12 +50,32 @@ export function validarCampo(campo, valor) {
   return regla ? regla(valor) : '';
 }
 
-// Valida todos los campos; devuelve { valido, errores } donde errores es { campo: mensaje }
-export function validarFormulario(datos) {
+// Valida todos los campos con un conjunto de reglas; devuelve { valido, errores } donde errores es { campo: mensaje }.
+// Se reutiliza en otros formularios del sitio (por ejemplo, "Comparte tus fotos").
+export function validarConReglas(reglas, datos) {
   const errores = {};
-  for (const campo of Object.keys(REGLAS)) {
-    const error = validarCampo(campo, datos[campo]);
+  for (const [campo, regla] of Object.entries(reglas)) {
+    const error = regla(datos[campo]);
     if (error) errores[campo] = error;
   }
   return { valido: Object.keys(errores).length === 0, errores };
+}
+
+export function validarFormulario(datos) {
+  return validarConReglas(REGLAS, datos);
+}
+
+// Lee ?categoria=junior del enlace para dejar el campo preseleccionado ('' si no es válida)
+export function categoriaDesdeUrl(busqueda) {
+  const categoria = new URLSearchParams(busqueda).get('categoria');
+  return CATEGORIAS.includes(categoria) ? categoria : '';
+}
+
+// Texto de confirmación cuando el formulario es válido
+export function mensajeExito({ nombre, categoria, email }) {
+  const primerNombre = String(nombre).trim().split(/\s+/)[0];
+  const destino = categoria === 'evaluacion'
+    ? 'tu evaluación de nivel'
+    : `tu clase de prueba en la categoría ${NOMBRES_CATEGORIA[categoria].split(' (')[0]}`;
+  return `¡Gracias, ${primerNombre}! Recibimos tu solicitud para ${destino}. Te escribiremos a ${String(email).trim()} en las próximas 48 horas.`;
 }
