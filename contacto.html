@@ -47,7 +47,7 @@
             <li class="nav-item"><a class="nav-link" href="informacion.html">El porrismo</a></li>
             <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
             <li class="nav-item"><a class="nav-link" href="tabla.html">Equipos</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacto.html" aria-current="page">Inscripción</a></li>
+            <li class="nav-item"><a class="nav-link nav-cta" href="contacto.html" aria-current="page">Inscripción</a></li>
           </ul>
         </div>
       </div>
@@ -75,7 +75,7 @@
       <div class="row g-4 g-lg-5">
         <!-- Formulario: la validación vive en js/model, js/view y js/controller (MVC) -->
         <section class="col-lg-8" aria-labelledby="titulo-formulario">
-          <p class="sobretitulo">/ Inscripción /</p>
+          <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Inscripción</p>
           <h2 id="titulo-formulario">Agenda tu clase de prueba</h2>
           <p>Completa el formulario y te contactamos en menos de 48 horas. Todos los campos son obligatorios.</p>
 
@@ -145,7 +145,16 @@
         </section>
 
         <!-- Datos de contacto -->
-        <aside class="col-lg-4" aria-labelledby="titulo-datos">
+        <aside class="col-lg-4" aria-labelledby="titulo-incluye">
+          <div class="panel-incluye mb-4">
+            <h2 id="titulo-incluye" class="h5"><i class="bi bi-gift" aria-hidden="true"></i> Tu clase de prueba gratis incluye</h2>
+            <ul class="lista-incluye">
+              <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Evaluación de nivel con un entrenador certificado.</li>
+              <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Un entrenamiento completo con la categoría de tu edad.</li>
+              <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Práctica en tapete y colchonetas, con spotters en cada stunt.</li>
+              <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Recomendación de equipo y horario para continuar.</li>
+            </ul>
+          </div>
           <div class="panel-lateral">
             <h2 id="titulo-datos" class="h5">Datos de contacto</h2>
             <dl class="datos-sede mb-0">
@@ -162,7 +171,7 @@
 
       <!-- Qué llevar a la primera clase -->
       <article class="mt-5" aria-labelledby="titulo-primera-clase">
-        <p class="sobretitulo">/ Tu primera clase /</p>
+        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Tu primera clase</p>
         <h2 id="titulo-primera-clase">Qué llevar el primer día</h2>
         <p>La clase de prueba dura lo mismo que un entrenamiento normal. Así llegas con todo listo para volar:</p>
         <ul class="pilares">

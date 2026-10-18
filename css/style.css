@@ -33,9 +33,11 @@
   --corte-diagonal: 3vw;
   --radio: 0.75rem;
   --radio-grande: 1.25rem;
-  --sombra: 0 0.5rem 1.5rem rgb(18 18 18 / 10%);
-  --sombra-morada: 0 1rem 2.25rem rgb(76 0 125 / 20%);
+  --sombra: 0 0.35rem 1.25rem rgb(18 18 18 / 8%);
+  --sombra-morada: 0 1rem 2.5rem rgb(76 0 125 / 20%);
+  --sombra-flotante: 0 1.25rem 2.5rem -0.5rem rgb(76 0 125 / 22%), 0 0.5rem 1rem -0.25rem rgb(18 18 18 / 8%);
   --transicion: 0.25s ease;
+  --transicion-fluida: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Bootstrap toma estos colores para sus componentes */
   --bs-primary: var(--color-morado);
@@ -71,6 +73,7 @@ h4,
 .marca {
   font-family: var(--fuente-titulos);
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -112,15 +115,20 @@ a {
   color: var(--color-dorado-oscuro);
 }
 
-/* Sobretítulo de sección: "/ Categorías /" */
+/* Sobretítulo de sección: "✦ Categorías" */
 .sobretitulo {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
   color: var(--color-dorado-oscuro);
   font-family: var(--fuente-titulos);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.sobretitulo-estrella {
+  margin-right: 0.15rem;
+  color: var(--color-dorado);
 }
 
 .titulo-gigante {
@@ -151,41 +159,77 @@ a {
 
 /* 3. Navegación: barra de vidrio oscuro que deja ver el contenido al hacer scroll */
 .navbar-asteria {
-  background-color: rgb(18 18 18 / 88%);
-  backdrop-filter: blur(12px) saturate(140%);
-  border-bottom: 2px solid var(--color-dorado);
+  background-color: rgb(18 18 18 / 82%);
+  backdrop-filter: blur(16px) saturate(150%);
+  border-bottom: 1px solid rgb(212 175 55 / 40%);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 25%);
+  transition: background-color var(--transicion-fluida), box-shadow var(--transicion-fluida);
 }
 
 .navbar-asteria .marca {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   color: var(--color-dorado);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition: transform var(--transicion-fluida);
 }
 
-/* Isotipo circular con aro dorado */
+.navbar-asteria .marca:hover {
+  transform: scale(1.02);
+}
+
+/* Isotipo circular con aro dorado y brillo sutil */
 .isotipo {
   border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--color-dorado);
+  box-shadow: 0 0 0 2px var(--color-dorado), 0 0 10px rgb(212 175 55 / 40%);
+  transition: transform var(--transicion-fluida);
+}
+
+.navbar-asteria .marca:hover .isotipo {
+  transform: rotate(8deg);
 }
 
 .navbar-asteria .nav-link {
   color: var(--color-blanco);
   font-family: var(--fuente-titulos);
   font-weight: 600;
-  border-bottom: 2px solid transparent;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  transition: all var(--transicion);
 }
 
-.navbar-asteria .nav-link:hover,
+.navbar-asteria .nav-link:hover {
+  color: var(--color-dorado);
+  background-color: rgb(255 255 255 / 8%);
+}
+
 .navbar-asteria .nav-link[aria-current="page"] {
   color: var(--color-dorado);
-  border-bottom-color: var(--color-dorado);
+  background-color: rgb(212 175 55 / 15%);
+}
+
+/* "Inscripción" como botón de acción principal dentro de la barra */
+.navbar-asteria .nav-link.nav-cta {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--color-negro);
+  background-color: var(--color-dorado);
+  box-shadow: 0 0.35rem 1rem rgb(212 175 55 / 30%);
+}
+
+.navbar-asteria .nav-link.nav-cta:hover,
+.navbar-asteria .nav-link.nav-cta:focus-visible,
+.navbar-asteria .nav-link.nav-cta[aria-current="page"] {
+  color: var(--color-negro);
+  background-color: var(--color-dorado-claro);
 }
 
 .navbar-asteria .navbar-toggler {
   border-color: var(--color-dorado);
+  border-radius: var(--radio);
 }
 
 .navbar-asteria .navbar-toggler-icon {
@@ -321,7 +365,7 @@ a {
   font-weight: 700;
   border: 2px solid var(--color-dorado);
   box-shadow: 0 0.5rem 1.5rem rgb(212 175 55 / 30%);
-  transition: background-color var(--transicion), transform var(--transicion);
+  transition: background-color var(--transicion), transform var(--transicion-fluida), box-shadow var(--transicion-fluida);
 }
 
 .btn-dorado::after {
@@ -377,12 +421,32 @@ a {
   border-top: 4px solid var(--color-dorado);
   border-radius: var(--radio);
   box-shadow: var(--sombra);
-  transition: transform var(--transicion), box-shadow var(--transicion);
+  transition: transform var(--transicion-fluida), box-shadow var(--transicion-fluida);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--sombra-morada);
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-flotante);
+}
+
+/* Enlace de siguiente paso al pie de una card ("Ver horarios →") */
+.enlace-flecha {
+  padding-top: 0.5rem;
+  white-space: nowrap;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: var(--color-morado);
+  text-decoration: none;
+}
+
+.enlace-flecha .flecha {
+  display: inline-block;
+  transition: transform var(--transicion-fluida);
+}
+
+.enlace-flecha:hover .flecha,
+.enlace-flecha:focus-visible .flecha {
+  transform: translateX(4px);
 }
 
 .card-title {
@@ -432,7 +496,8 @@ a {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-morado);
-  background-color: var(--color-morado-suave);
+  background-color: rgb(76 0 125 / 6%);
+  border: 1px solid rgb(76 0 125 / 18%);
   border-radius: 999px;
 }
 
@@ -454,7 +519,7 @@ a {
 
 .tabla-asteria {
   --bs-table-bg: transparent;
-  --bs-table-striped-bg: var(--color-morado-suave);
+  --bs-table-border-color: rgb(76 0 125 / 10%);
 }
 
 .tabla-asteria thead th {
@@ -477,6 +542,10 @@ a {
 .tabla-asteria tbody th {
   font-family: var(--fuente-titulos);
   color: var(--color-morado);
+}
+
+.tabla-asteria tbody tr:hover > * {
+  background-color: rgb(76 0 125 / 4%);
 }
 
 .tabla-asteria tfoot td {
@@ -559,6 +628,48 @@ a {
   font-family: var(--fuente-titulos);
   font-weight: 700;
   color: var(--color-morado);
+}
+
+/* Campos de ~50 px de alto: más fáciles de tocar en celular */
+.formulario-asteria .form-control,
+.formulario-asteria .form-select {
+  min-height: 3.1rem;
+}
+
+/* Panel oscuro: qué incluye la clase de prueba */
+.panel-incluye {
+  padding: 1.5rem;
+  color: var(--color-blanco);
+  background: linear-gradient(160deg, var(--color-morado-noche), var(--color-negro));
+  border: 1px solid rgb(212 175 55 / 30%);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra-flotante);
+}
+
+.panel-incluye h2 {
+  color: var(--color-blanco);
+}
+
+.panel-incluye h2 .bi {
+  color: var(--color-dorado);
+}
+
+.lista-incluye {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-incluye li {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.lista-incluye i.bi {
+  flex-shrink: 0;
+  color: var(--color-dorado-claro);
 }
 
 /* Foco morado en lugar del azul de Bootstrap */
@@ -780,31 +891,52 @@ a {
   font-size: 0.95rem;
 }
 
-/* Franja dorada de cifras */
+/* Cifras del club: tarjetas oscuras que montan sobre el borde inferior del hero */
 .franja-cifras {
-  background-color: var(--color-dorado);
-  color: var(--color-negro);
-  padding-block: 1.5rem;
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * (var(--corte-diagonal) + 2.5rem));
 }
 
 .cifras {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 1rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-weight: 700;
   text-align: center;
+}
+
+.cifras li {
+  padding: 1.25rem 1rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  background: linear-gradient(160deg, #1d1726, var(--color-negro));
+  border: 1px solid rgb(212 175 55 / 25%);
+  border-radius: var(--radio-grande);
+  box-shadow: var(--sombra-flotante);
+}
+
+.cifras li > i.bi {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.35rem;
+  color: var(--color-dorado);
 }
 
 .cifras strong {
   display: block;
   font-family: var(--fuente-titulos);
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.1;
+  color: var(--color-dorado);
+}
+
+.cifras .sufijo {
+  font-size: 0.6em;
+  vertical-align: super;
 }
 
 /* Pilares con ícono y aro dorado */
@@ -1236,6 +1368,10 @@ a {
   transform: scale(1.06);
 }
 
+.card:hover .foto-cubre img {
+  transform: scale(1.05);
+}
+
 .figura-galeria figcaption {
   margin-top: 0.75rem;
   color: var(--color-blanco);
@@ -1443,6 +1579,15 @@ a {
 
 /* 9. Responsive (mobile first: los estilos de arriba son para móvil) */
 @media (width >= 992px) {
+  .cifras {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .navbar-asteria .nav-link.nav-cta {
+    margin-top: 0;
+    margin-left: 0.5rem;
+  }
+
   .visor .modal-body {
     padding: 1rem 5rem;
   }
@@ -1499,10 +1644,6 @@ a {
   .tabla-contenedor {
     background-color: transparent;
     box-shadow: none;
-  }
-
-  .tabla-asteria {
-    --bs-table-striped-bg: transparent;
   }
 
   .tabla-asteria thead {

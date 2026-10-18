@@ -47,7 +47,7 @@
             <li class="nav-item"><a class="nav-link" href="informacion.html">El porrismo</a></li>
             <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
             <li class="nav-item"><a class="nav-link" href="tabla.html">Equipos</a></li>
-            <li class="nav-item"><a class="nav-link" href="contacto.html">Inscripción</a></li>
+            <li class="nav-item"><a class="nav-link nav-cta" href="contacto.html">Inscripción</a></li>
           </ul>
         </div>
       </div>
@@ -99,10 +99,10 @@
     <section class="franja-cifras" aria-label="El club en cifras">
       <div class="container">
         <ul class="cifras">
-          <li><strong>4</strong> categorías</li>
-          <li><strong>60+</strong> deportistas</li>
-          <li><strong>12</strong> podios</li>
-          <li><strong>4.2</strong> nivel máximo</li>
+          <li><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i><strong>4</strong> categorías</li>
+          <li><i class="bi bi-people" aria-hidden="true"></i><strong>60<span class="sufijo">+</span></strong> deportistas</li>
+          <li><i class="bi bi-trophy" aria-hidden="true"></i><strong>12</strong> podios</li>
+          <li><i class="bi bi-bar-chart-steps" aria-hidden="true"></i><strong>4.2</strong> nivel máximo</li>
         </ul>
       </div>
     </section>
@@ -110,7 +110,7 @@
     <!-- 3. Pilares del club -->
     <section class="seccion" aria-labelledby="titulo-pilares">
       <div class="container">
-        <p class="sobretitulo">Nuestra esencia</p>
+        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Nuestra esencia</p>
         <h2 id="titulo-pilares">Mucho más que pompones</h2>
         <ul class="pilares">
           <li class="pilar revelar"><i class="bi bi-lightning-charge" aria-hidden="true"></i><h3 class="h6">Fuerza</h3><p>Acondicionamiento para bases, flyers y backspots.</p></li>
@@ -124,7 +124,7 @@
     <!-- 4. Categorías (cards de Bootstrap) -->
     <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-categorias">
       <div class="container">
-        <p class="sobretitulo">Categorías</p>
+        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Categorías</p>
         <h2 id="titulo-categorias">Encuentra tu equipo</h2>
         <p class="mb-4">Entrenamos por edades y niveles para que cada deportista avance a su ritmo.</p>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
@@ -138,10 +138,11 @@
                   <img src="img/categoria-mini-800.webp" alt="Niñas del equipo Mini practicando un stunt en el gimnasio de Asteria Cheer" width="800" height="533" loading="lazy">
                 </picture>
               </div>
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <h3 class="card-title h5">Mini</h3>
                 <ul class="etiquetas"><li>6 a 10 años</li><li>Nivel 1</li></ul>
                 <p class="card-text">Primeros saltos, coordinación y mucha diversión en un ambiente seguro.</p>
+                <a class="enlace-flecha mt-auto" href="tabla.html">Ver horarios <i class="bi bi-arrow-right flecha" aria-hidden="true"></i></a>
               </div>
             </article>
           </div>
@@ -155,10 +156,11 @@
                   <img src="img/categoria-junior-800.webp" alt="Equipo Junior entrenando una extensión en el gimnasio junto al letrero Entrenamientos Junior" width="800" height="533" loading="lazy">
                 </picture>
               </div>
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <h3 class="card-title h5">Junior</h3>
                 <ul class="etiquetas"><li>11 a 14 años</li><li>Nivel 1-2</li></ul>
                 <p class="card-text">Primeros stunts y pirámides, técnica de tumbling y trabajo en equipo.</p>
+                <a class="enlace-flecha mt-auto" href="tabla.html">Ver horarios <i class="bi bi-arrow-right flecha" aria-hidden="true"></i></a>
               </div>
             </article>
           </div>
@@ -172,10 +174,11 @@
                   <img src="img/categoria-senior-800.webp" alt="Equipo Senior entrenando stunts y tumbling en el gimnasio de Asteria Cheer" width="800" height="533" loading="lazy">
                 </picture>
               </div>
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <h3 class="card-title h5">Senior</h3>
                 <ul class="etiquetas"><li>15 a 18 años</li><li>Nivel 2-3</li></ul>
                 <p class="card-text">Rutinas de competencia completas con stunts, pirámides y baile.</p>
+                <a class="enlace-flecha mt-auto" href="tabla.html">Ver horarios <i class="bi bi-arrow-right flecha" aria-hidden="true"></i></a>
               </div>
             </article>
           </div>
@@ -189,10 +192,11 @@
                   <img src="img/categoria-open-1536.webp" alt="Equipo Open 4.2 levantando una pirámide en el gimnasio de Asteria Cheer" width="1536" height="1024" loading="lazy">
                 </picture>
               </div>
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <h3 class="card-title h5">Open</h3>
                 <ul class="etiquetas"><li>18+ años</li><li>Hasta nivel 4.2</li></ul>
                 <p class="card-text">Nuestro equipo élite: elementos avanzados y competencias nacionales.</p>
+                <a class="enlace-flecha mt-auto" href="tabla.html">Ver horarios <i class="bi bi-arrow-right flecha" aria-hidden="true"></i></a>
               </div>
             </article>
           </div>
@@ -203,7 +207,7 @@
     <!-- 5. Bloques alternos imagen + texto -->
     <section class="seccion" aria-labelledby="titulo-club">
       <div class="container">
-        <p class="sobretitulo">El club</p>
+        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> El club</p>
         <h2 id="titulo-club" class="mb-4">Un lugar para brillar</h2>
         <article class="revelar card bloque-alterno mb-4">
           <div class="row g-0 align-items-center">
@@ -251,7 +255,7 @@
     <!-- 6. Cómo empezar en 4 pasos -->
     <section class="seccion fondo-suave borde-diagonal" aria-labelledby="titulo-pasos">
       <div class="container">
-        <p class="sobretitulo">/ Cómo empezar /</p>
+        <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Cómo empezar</p>
         <h2 id="titulo-pasos">Tu primer día en 4 pasos</h2>
         <ol class="pasos">
           <li class="revelar"><span class="numero" aria-hidden="true">01</span><h3 class="h6">Elige tu categoría</h3><p>Según tu edad y experiencia.</p></li>
@@ -267,7 +271,7 @@
       <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4 carrusel-ancho">
           <div>
-            <p class="sobretitulo">Momentos Asteria</p>
+            <p class="sobretitulo"><span class="sobretitulo-estrella" aria-hidden="true">✦</span> Momentos Asteria</p>
             <h2 id="titulo-momentos" class="mb-0">Así brillamos</h2>
           </div>
           <button class="btn btn-contorno btn-sm" type="button" data-pausar-carrusel="carrusel-momentos" aria-pressed="false">
