@@ -4,7 +4,7 @@
 
 Portal web de **Asteria Cheer**, club de porrismo ficticio en Medellín. Proyecto académico de la asignatura Herramientas de Programación III (I.U. Pascual Bravo).
 
-- **Sitio publicado:** _pendiente_
+- **Sitio publicado:** https://valen-17.github.io/asteria-cheer-valentina-perez/
 - **Autora:** Valentina Pérez
 
 ## Tecnologías
