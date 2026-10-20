@@ -523,8 +523,11 @@ a {
   color: var(--color-morado);
 }
 
-.tabla-asteria tbody tr:hover > * {
-  background-color: rgb(76 0 125 / 4%);
+/* Resaltado de fila solo con mouse y con la tabla en columnas (en celular las filas son tarjetas) */
+@media (width >= 768px) and (hover: hover) {
+  .tabla-asteria tbody tr:hover > * {
+    background-color: rgb(76 0 125 / 4%);
+  }
 }
 
 /* Al llegar desde "Ver horarios" (tabla.html#horario-mini): la fila queda debajo del menú y resaltada */
@@ -1072,7 +1075,7 @@ a {
 /* Conteo en ochos: cada pilar ocupa dos tiempos de la rutina */
 .conteo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: 1fr; /* celular: una columna, todos alineados a la izquierda */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1080,13 +1083,8 @@ a {
 }
 
 .conteo li {
-  padding: 1.25rem 1.5rem 1.25rem 0;
+  padding: 1.25rem 0;
   border-top: 3px solid var(--color-morado);
-}
-
-.conteo li + li {
-  padding-left: 1.5rem;
-  border-left: 1px solid rgb(76 0 125 / 15%);
 }
 
 .tiempos {
@@ -1663,6 +1661,22 @@ a {
 
 /* 9. Responsive (mobile first: los estilos de arriba son para móvil) */
 @media (width >= 768px) {
+  .conteo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .conteo li {
+    padding-inline: 1.5rem;
+  }
+
+  .conteo li:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .conteo li:nth-child(even) {
+    border-left: 1px solid rgb(76 0 125 / 15%);
+  }
+
   .tapete {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1750,6 +1764,15 @@ a {
 
   .navbar-asteria .nav-link {
     margin-inline: 0.25rem;
+  }
+
+  .conteo {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .conteo li:nth-child(n + 2) {
+    padding-left: 1.5rem;
+    border-left: 1px solid rgb(76 0 125 / 15%);
   }
 }
 
