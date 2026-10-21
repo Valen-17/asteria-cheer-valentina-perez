@@ -25,6 +25,8 @@ jobs:
         run: npm run lint:css
       - name: JavaScript (eslint)
         run: npm run lint:js
+      - name: Menú, pie y recursos sincronizados con parciales/
+        run: npm run check:parciales
       - name: Requisitos de la rúbrica
         run: npm run check:rubrica
       - name: Mínimos de contenido (aviso hasta completar el sitio)

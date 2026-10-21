@@ -29,6 +29,7 @@ asteria-cheer/
 │   ├── model/          Datos y reglas de validación
 │   ├── view/           Mensajes y estados en el DOM
 │   └── controller/     Eventos que unen modelo y vista
+├── parciales/          Menú, pie de página y recursos del <head> comunes a las 5 páginas
 ├── img/                Imágenes optimizadas (WebP/JPG) que usa el sitio
 ├── originales/         Archivos fuente sin optimizar (no se suben al repositorio)
 ├── tests/              Pruebas unitarias del modelo
@@ -61,9 +62,21 @@ Abrir el sitio con la extensión Live Server de VS Code (los módulos de JavaScr
 | `npm run lint` | Valida HTML, CSS y JavaScript |
 | `npm run check:rubrica` | Revisa la estructura que exige la rúbrica en cada página |
 | `npm run check:rubrica:final` | Además exige los mínimos de contenido (galería, tabla, cards, formulario) |
+| `npm run parciales` | Copia `parciales/menu.html`, `pie.html` y `recursos.html` dentro de las 5 páginas y marca la página activa del menú |
+| `npm run check:parciales` | Verifica que las páginas estén sincronizadas con `parciales/` (también corre antes de cada commit y en el pipeline) |
 | `npm test` | Pruebas unitarias |
 | `npm run imagenes -- originales/galeria/*.jpg` | Genera versiones AVIF y WebP (480, 800 y 1200 px) en `img/`, sin metadatos EXIF, e imprime el `<picture>` listo para copiar. Con `--anchos 320,480,640` se eligen otros anchos |
 | `npm run validate` | Todo lo anterior (excepto el chequeo final) |
+
+## Bloques comunes (parciales)
+
+El menú, el pie de página y los enlaces comunes del `<head>` se escriben **una sola vez** en `parciales/`. Para cambiarlos:
+
+1. Edita el archivo en `parciales/`.
+2. Ejecuta `npm run parciales`.
+3. Las 5 páginas se actualizan; cada una sigue teniendo su HTML completo (lo que exige la rúbrica).
+
+No edites a mano lo que está entre `<!-- parcial:… -->` y `<!-- /parcial:… -->` en las páginas: se sobrescribe.
 
 ## Flujo de trabajo
 
